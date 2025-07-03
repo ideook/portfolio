@@ -79,6 +79,11 @@
   gap: 0.25rem;
 }
 
+.metricPrefix {
+  color: var(--color-tertiary);
+  font-size: 14px;
+}
+
 .metricValue {
   font-size: 16px;
   font-weight: 600;
