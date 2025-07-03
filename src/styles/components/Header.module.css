@@ -5,6 +5,20 @@
   margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  z-index: 100;
+  padding: 1.5rem 0;
+  margin-top: -1.5rem;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  will-change: box-shadow, background-color;
+}
+
+.header.scrolled {
+  box-shadow: 0 1px 0 0 var(--color-border);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
 }
 
 .brand {

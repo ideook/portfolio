@@ -88,6 +88,39 @@
       "tags": ["weather", "mobile-app", "web-app"]
     },
     {
+      "id": "weather-app-2026",
+      "name": "WeatherApp",
+      "description": "Beautiful weather forecasts with location-based insights",
+      "platforms": {
+        "web": {
+          "url": "https://weather.app",
+          "status": "launched"
+        },
+        "ios": {
+          "url": "https://apps.apple.com/app/weatherapp/id987654321",
+          "status": "launched"
+        },
+        "android": {
+          "url": "https://play.google.com/store/apps/details?id=com.weatherapp",
+          "status": "launched"
+        }
+      },
+      "management": "active",
+      "users": {
+        "count": 850,
+        "trend": "stable",
+        "unit": "users"
+      },
+      "revenue": {
+        "monthly": "$120",
+        "trend": "stable",
+        "currency": "USD"
+      },
+      "launchDate": "2024-01-20",
+      "featured": true,
+      "tags": ["weather", "mobile-app", "web-app"]
+    },
+    {
       "id": "portfolio-site",
       "name": "Portfolio Site",
       "description": "Personal portfolio showcasing project metrics and achievements",
