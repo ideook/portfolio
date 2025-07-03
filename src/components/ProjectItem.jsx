@@ -1,7 +1,7 @@
 import styles from '../styles/components/ProjectItem.module.css'
 
 const STATUS_LABELS = {
-  'launched': 'Live',
+  'launched': '• Live',
   'development': 'In Development', 
   'paused': 'Paused',
   'discontinued': 'Discontinued'
@@ -59,7 +59,7 @@ function ProjectItem({ project }) {
               rel="noopener noreferrer"
               className={styles.platformLink}
             >
-              <span className={styles.platformName}>{platform}</span>
+              <span className={styles.platformName}>{platform} ↗</span>
               {data.status !== 'launched' && (
                 <span className={styles.platformStatus}>({STATUS_LABELS[data.status]})</span>
               )}
@@ -70,6 +70,7 @@ function ProjectItem({ project }) {
       
       <div className={styles.projectMetrics}>
         <div className={styles.metric}>
+          <span className={styles.metricPrefix}>·</span>
           <span className={styles.metricValue}>
             {project.users.count.toLocaleString()}
           </span>
@@ -79,6 +80,7 @@ function ProjectItem({ project }) {
           {userTrend && <span className={styles.metricTrend}>{userTrend}</span>}
         </div>
         <div className={styles.metric}>
+          <span className={styles.metricPrefix}>·</span>
           <span className={styles.metricValue}>
             {project.revenue.monthly}
           </span>

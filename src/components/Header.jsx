@@ -6,7 +6,7 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.brand}>evanyi</h1>
+      <h1 className={styles.brand}>evanyi<span className={styles.brandAccent}> ◦</span></h1>
       <nav className={styles.nav}>
         {navigation.primaryProjects.map((project, index) => (
           <a 
