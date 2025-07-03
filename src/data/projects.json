@@ -24,9 +24,21 @@
     {
       "id": "taskflow-2025",
       "name": "TaskFlow",
-      "url": "https://taskflow.app",
       "description": "Simple task management for busy people",
-      "status": "launched",
+      "platforms": {
+        "web": {
+          "url": "https://taskflow.app",
+          "status": "launched"
+        },
+        "ios": {
+          "url": "https://apps.apple.com/app/taskflow/id123456789",
+          "status": "launched"
+        },
+        "android": {
+          "url": "https://play.google.com/store/apps/details?id=com.taskflow",
+          "status": "development"
+        }
+      },
       "management": "active",
       "users": {
         "count": 1200,
@@ -40,14 +52,26 @@
       },
       "launchDate": "2024-03-15",
       "featured": true,
-      "tags": ["productivity", "web-app"]
+      "tags": ["productivity", "web-app", "mobile-app"]
     },
     {
       "id": "weather-app-2024",
       "name": "WeatherApp",
-      "url": "https://weather.app",
       "description": "Beautiful weather forecasts with location-based insights",
-      "status": "launched",
+      "platforms": {
+        "web": {
+          "url": "https://weather.app",
+          "status": "launched"
+        },
+        "ios": {
+          "url": "https://apps.apple.com/app/weatherapp/id987654321",
+          "status": "launched"
+        },
+        "android": {
+          "url": "https://play.google.com/store/apps/details?id=com.weatherapp",
+          "status": "launched"
+        }
+      },
       "management": "active",
       "users": {
         "count": 850,
@@ -61,14 +85,18 @@
       },
       "launchDate": "2024-01-20",
       "featured": true,
-      "tags": ["weather", "mobile-app"]
+      "tags": ["weather", "mobile-app", "web-app"]
     },
     {
       "id": "portfolio-site",
       "name": "Portfolio Site",
-      "url": "https://evanyi.com",
       "description": "Personal portfolio showcasing project metrics and achievements",
-      "status": "development",
+      "platforms": {
+        "web": {
+          "url": "https://evanyi.com",
+          "status": "development"
+        }
+      },
       "management": "active",
       "users": {
         "count": 0,
