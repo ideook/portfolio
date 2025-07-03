@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "lastUpdated": "2025-07-03T10:30:00Z",
+    "version": "1.0.0"
+  },
+  "navigation": {
+    "primaryProjects": [
+      {
+        "name": "TaskFlow",
+        "url": "https://taskflow.app"
+      },
+      {
+        "name": "WeatherApp",
+        "url": "https://weather.app"
+      }
+    ]
+  },
+  "social": {
+    "twitter": "@evanyi",
+    "email": "hello@evanyi.com",
+    "github": "github.com/evanyi"
+  },
+  "projects": [
+    {
+      "id": "taskflow-2025",
+      "name": "TaskFlow",
+      "url": "https://taskflow.app",
+      "description": "Simple task management for busy people",
+      "status": "launched",
+      "management": "active",
+      "users": {
+        "count": 1200,
+        "trend": "up",
+        "unit": "users"
+      },
+      "revenue": {
+        "monthly": "$300",
+        "trend": "up",
+        "currency": "USD"
+      },
+      "launchDate": "2024-03-15",
+      "featured": true,
+      "tags": ["productivity", "web-app"]
+    },
+    {
+      "id": "weather-app-2024",
+      "name": "WeatherApp",
+      "url": "https://weather.app",
+      "description": "Beautiful weather forecasts with location-based insights",
+      "status": "launched",
+      "management": "active",
+      "users": {
+        "count": 850,
+        "trend": "stable",
+        "unit": "users"
+      },
+      "revenue": {
+        "monthly": "$120",
+        "trend": "stable",
+        "currency": "USD"
+      },
+      "launchDate": "2024-01-20",
+      "featured": true,
+      "tags": ["weather", "mobile-app"]
+    },
+    {
+      "id": "portfolio-site",
+      "name": "Portfolio Site",
+      "url": "https://evanyi.com",
+      "description": "Personal portfolio showcasing project metrics and achievements",
+      "status": "development",
+      "management": "active",
+      "users": {
+        "count": 0,
+        "trend": "stable",
+        "unit": "visitors"
+      },
+      "revenue": {
+        "monthly": "$0",
+        "trend": "stable",
+        "currency": "USD"
+      },
+      "launchDate": "2025-07-03",
+      "featured": false,
+      "tags": ["portfolio", "web-app"]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  margin-top: 3rem;
+}
+
+.socialLink {
+  font-size: 14px;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

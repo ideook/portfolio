@@ -1,0 +1,67 @@
+.projectItem {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projectItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.projectName {
+  font-size: clamp(18px, 4vw, 20px);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.projectName a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectName a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.projectDescription {
+  font-size: 14px;
+  color: var(--color-tertiary);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.projectStatus {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.statusIcon,
+.managementIcon {
+  font-size: 14px;
+}
+
+.projectMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric {
+  font-size: 14px;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .projectMetrics {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
