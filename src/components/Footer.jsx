@@ -12,7 +12,7 @@ function Footer() {
       </div>
       <div className={styles.socialLinks}>
         <a 
-          href={`https://twitter.com/${social.twitter.replace('@', '')}`} 
+          href={social.twitter} 
           className={styles.socialLink}
           target="_blank" 
           rel="noopener noreferrer"
@@ -23,7 +23,7 @@ function Footer() {
           </svg>
         </a>
         <a 
-          href={`https://${social.github}`} 
+          href={social.github} 
           className={styles.socialLink}
           target="_blank" 
           rel="noopener noreferrer"

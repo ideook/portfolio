@@ -87,33 +87,6 @@ function ProjectDetail() {
           </section>
         )}
 
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Metrics</h2>
-          <div className={styles.metrics}>
-            <div className={styles.metricCard}>
-              <span className={styles.metricLabel}>Users</span>
-              <span className={styles.metricValue}>
-                {project.users.count.toLocaleString()} {project.users.unit}
-              </span>
-              <span className={styles.metricTrend}>
-                {project.users.trend === 'up' ? '↑ Growing' : 
-                 project.users.trend === 'down' ? '↓ Declining' : 
-                 '→ Stable'}
-              </span>
-            </div>
-            <div className={styles.metricCard}>
-              <span className={styles.metricLabel}>Revenue</span>
-              <span className={styles.metricValue}>
-                {project.revenue.monthly}
-              </span>
-              <span className={styles.metricTrend}>
-                {project.revenue.trend === 'up' ? '↑ Growing' : 
-                 project.revenue.trend === 'down' ? '↓ Declining' : 
-                 '→ Stable'}
-              </span>
-            </div>
-          </div>
-        </section>
 
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Details</h2>

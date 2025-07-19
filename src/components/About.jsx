@@ -5,22 +5,18 @@ function About() {
     <main className={styles.about}>
       <section className={styles.intro}>
         <h2>About</h2>
-        <p>Developer focused on building useful products that people actually use.</p>
-      </section>
-      
-      <section className={styles.section}>
-        <h3>Experience</h3>
-        <p>Building web services and mobile applications with a focus on user experience and performance.</p>
+        <p>After 15 years in architecture, I switched to coding for the immediacy of building solutions. While I continue working in the architecture field, I'm increasingly drawn to personal projects where I can experiment and build without constraints.</p>
+        <p>I believe in rapid prototyping and learning through making—some of my best work happens when I just start building.</p>
       </section>
       
       <section className={styles.section}>
         <h3>Technologies</h3>
         <ul className={styles.techList}>
-          <li>JavaScript / TypeScript</li>
-          <li>React / React Native</li>
-          <li>Node.js / Express</li>
-          <li>Python / Django</li>
-          <li>PostgreSQL / MongoDB</li>
+          <li>C# / .NET (Windows, Revit Add-ins)</li>
+          <li>Flutter / Dart (Mobile AI Apps)</li>
+          <li>React / Next.js (SaaS Web)</li>
+          <li>Python (AI/ML Integration)</li>
+          <li>PostgreSQL / Supabase</li>
         </ul>
       </section>
       

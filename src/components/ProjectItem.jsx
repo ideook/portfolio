@@ -36,16 +36,6 @@ function ProjectItem({ project }) {
 
   return (
     <article className={styles.projectItem}>
-      {project.image && (
-        <div className={styles.projectImageContainer}>
-          <img 
-            src={project.image} 
-            alt={`${project.name} screenshot`}
-            className={styles.projectImage}
-          />
-        </div>
-      )}
-      
       <div className={styles.projectHeader}>
         <h2 className={styles.projectName}>
           <Link to={`/project/${project.id}`} className={styles.projectNameLink}>
@@ -59,7 +49,13 @@ function ProjectItem({ project }) {
       
       <p className={styles.projectDescription}>{project.description}</p>
       
-      
+      {project.tags && (
+        <div className={styles.projectTags}>
+          {project.tags.map(tag => (
+            <span key={tag} className={styles.tag}>{tag}</span>
+          ))}
+        </div>
+      )}
       
       <div className={styles.projectMeta}>
         {project.launchDate && (
