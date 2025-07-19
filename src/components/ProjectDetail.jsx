@@ -51,6 +51,16 @@ function ProjectDetail() {
           <p className={styles.description}>{project.description}</p>
         </header>
 
+        {project.image && (
+          <section className={styles.imageSection}>
+            <img 
+              src={project.image} 
+              alt={`${project.name} screenshot`}
+              className={styles.projectImage}
+            />
+          </section>
+        )}
+
         {project.platforms && (
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Platforms</h2>

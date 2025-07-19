@@ -14,7 +14,8 @@
       "Bash(git push:*)",
       "Bash(git config:*)",
       "WebFetch(domain:www.revenuecat.com)",
-      "WebFetch(domain:yogeshpaliyal.com)"
+      "WebFetch(domain:yogeshpaliyal.com)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }

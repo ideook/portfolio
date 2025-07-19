@@ -24,7 +24,8 @@
     {
       "id": "taskflow-2025",
       "name": "TaskFlow1111",
-      "description": "Simple task management for busy people",
+      "description": "A comprehensive task management platform designed for busy professionals and teams. Features intelligent prioritization, automated reminders, and seamless collaboration tools that help users stay organized and productive. Built with a focus on simplicity and efficiency, TaskFlow eliminates the complexity of traditional project management tools while providing powerful features for deadline tracking, team coordination, and personal productivity optimization.",
+      "image": "/images/taskflow-hero.jpg",
       "platforms": {
         "web": {
           "url": "https://taskflow.app",
@@ -47,6 +48,8 @@
       },
       "revenue": {
         "monthly": "$300",
+        "mrr": "$300",
+        "arr": "$3600",
         "trend": "up",
         "currency": "USD"
       },
@@ -57,7 +60,8 @@
     {
       "id": "weather-app-2024",
       "name": "WeatherApp",
-      "description": "Beautiful weather forecasts with location-based insights",
+      "description": "An elegant weather application that provides hyper-local forecasts with stunning visual design and intelligent location-based insights. Combines real-time meteorological data with advanced machine learning algorithms to deliver personalized weather predictions, severe weather alerts, and outdoor activity recommendations. Features include hourly forecasts, 10-day extended predictions, interactive radar maps, and customizable notifications for weather conditions that matter most to each user.",
+      "image": "/images/weatherapp-hero.jpg",
       "platforms": {
         "web": {
           "url": "https://weather.app",
@@ -80,6 +84,8 @@
       },
       "revenue": {
         "monthly": "$120",
+        "mrr": "$120",
+        "arr": "$1440",
         "trend": "stable",
         "currency": "USD"
       },
@@ -90,7 +96,8 @@
     {
       "id": "weather-app-2026",
       "name": "WeatherApp",
-      "description": "Beautiful weather forecasts with location-based insights",
+      "description": "An elegant weather application that provides hyper-local forecasts with stunning visual design and intelligent location-based insights. Combines real-time meteorological data with advanced machine learning algorithms to deliver personalized weather predictions, severe weather alerts, and outdoor activity recommendations. Features include hourly forecasts, 10-day extended predictions, interactive radar maps, and customizable notifications for weather conditions that matter most to each user.",
+      "image": "/images/weatherapp-hero.jpg",
       "platforms": {
         "web": {
           "url": "https://weather.app",
@@ -113,6 +120,8 @@
       },
       "revenue": {
         "monthly": "$120",
+        "mrr": "$120",
+        "arr": "$1440",
         "trend": "stable",
         "currency": "USD"
       },
@@ -123,7 +132,8 @@
     {
       "id": "portfolio-site",
       "name": "Portfolio Site",
-      "description": "Personal portfolio showcasing project metrics and achievements",
+      "description": "A minimalist personal portfolio website built with modern web technologies to showcase project metrics, achievements, and professional growth. Features clean typography-focused design, real-time project status tracking, and comprehensive analytics dashboard. Designed with zero maintenance overhead in mind, the site automatically updates project statuses and metrics while maintaining exceptional performance and accessibility standards across all devices.",
+      "image": "/images/portfolio-hero.jpg",
       "platforms": {
         "web": {
           "url": "https://evanyi.com",
@@ -138,6 +148,8 @@
       },
       "revenue": {
         "monthly": "$0",
+        "mrr": "$0",
+        "arr": "$0",
         "trend": "stable",
         "currency": "USD"
       },
