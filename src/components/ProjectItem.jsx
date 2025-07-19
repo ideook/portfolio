@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from '../styles/components/ProjectItem.module.css'
 
 const STATUS_LABELS = {
@@ -40,7 +41,9 @@ function ProjectItem({ project }) {
     <article className={styles.projectItem}>
       <div className={styles.projectHeader}>
         <h2 className={styles.projectName}>
-          {project.name}
+          <Link to={`/project/${project.id}`} className={styles.projectNameLink}>
+            {project.name}
+          </Link>
         </h2>
         <span className={styles.projectStatus}>
           {statusLabel}

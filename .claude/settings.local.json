@@ -13,7 +13,8 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(git config:*)",
-      "WebFetch(domain:www.revenuecat.com)"
+      "WebFetch(domain:www.revenuecat.com)",
+      "WebFetch(domain:yogeshpaliyal.com)"
     ],
     "deny": []
   }

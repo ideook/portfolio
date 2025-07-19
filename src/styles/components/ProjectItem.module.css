@@ -17,7 +17,17 @@
   font-size: 20px;
   font-weight: 600;
   margin: 0;
+}
+
+.projectNameLink {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectNameLink:hover {
   color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .projectStatus {

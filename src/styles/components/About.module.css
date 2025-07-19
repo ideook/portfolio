@@ -1,0 +1,58 @@
+.about {
+  margin-bottom: 3rem;
+}
+
+.intro {
+  margin-bottom: 3rem;
+}
+
+.intro h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-secondary);
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-secondary);
+}
+
+.techList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.techList li {
+  font-size: 16px;
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  padding: 0.5rem 0;
+}
+
+.techList li::before {
+  content: "▸ ";
+  color: var(--color-accent);
+  font-weight: bold;
+}
