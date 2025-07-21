@@ -22,140 +22,116 @@
   },
   "projects": [
     {
-      "id": "taskflow-2025",
-      "name": "TaskFlow1111",
-      "description": "A comprehensive task management platform designed for busy professionals and teams. Features intelligent prioritization, automated reminders, and seamless collaboration tools that help users stay organized and productive. Built with a focus on simplicity and efficiency, TaskFlow eliminates the complexity of traditional project management tools while providing powerful features for deadline tracking, team coordination, and personal productivity optimization.",
-      "image": "/images/taskflow-hero.jpg",
+      "id": "thinka-2025",
+      "name": "Thinka - AI Idea Recorder",
+      "description": "A minimalist, intelligent app designed to help you capture and organize your thoughts effortlessly. Features voice recording, AI transcription and summarization, project-based organization, and professional document generation. Transform ideas into insights with seamless voice and text input support, simple gesture controls, and unlimited projects with Thinka Pro subscription.",
+      "image": "/images/thinka-hero.jpg",
       "platforms": {
-        "web": {
-          "url": "https://taskflow.app",
-          "status": "launched"
-        },
         "ios": {
-          "url": "https://apps.apple.com/app/taskflow/id123456789",
+          "url": "https://apps.apple.com/app/thinka/id123456790",
           "status": "launched"
-        },
-        "android": {
-          "url": "https://play.google.com/store/apps/details?id=com.taskflow",
-          "status": "development"
         }
       },
       "management": "active",
       "users": {
-        "count": 1200,
+        "count": 450,
         "trend": "up",
         "unit": "users"
       },
       "revenue": {
-        "monthly": "$300",
-        "mrr": "$300",
-        "arr": "$3600",
+        "monthly": "$180",
+        "mrr": "$180",
+        "arr": "$2160",
         "trend": "up",
         "currency": "USD"
       },
-      "launchDate": "2024-03-15",
+      "launchDate": "2024-11-15",
       "featured": true,
-      "tags": ["productivity", "web-app", "mobile-app"]
+      "tags": ["productivity", "mobile-app", "ai"]
     },
     {
-      "id": "weather-app-2024",
-      "name": "WeatherApp",
-      "description": "An elegant weather application that provides hyper-local forecasts with stunning visual design and intelligent location-based insights. Combines real-time meteorological data with advanced machine learning algorithms to deliver personalized weather predictions, severe weather alerts, and outdoor activity recommendations. Features include hourly forecasts, 10-day extended predictions, interactive radar maps, and customizable notifications for weather conditions that matter most to each user.",
-      "image": "/images/weatherapp-hero.jpg",
+      "id": "k-random-trip-2025",
+      "name": "K-Random Trip: Korea Travel",
+      "description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
+      "image": "/images/k-random-trip-hero.jpg",
       "platforms": {
-        "web": {
-          "url": "https://weather.app",
-          "status": "launched"
-        },
         "ios": {
-          "url": "https://apps.apple.com/app/weatherapp/id987654321",
-          "status": "launched"
-        },
-        "android": {
-          "url": "https://play.google.com/store/apps/details?id=com.weatherapp",
+          "url": "https://apps.apple.com/app/k-random-trip/id6738627897",
           "status": "launched"
         }
       },
       "management": "active",
       "users": {
-        "count": 850,
-        "trend": "stable",
+        "count": 280,
+        "trend": "up",
         "unit": "users"
       },
       "revenue": {
-        "monthly": "$120",
-        "mrr": "$120",
-        "arr": "$1440",
-        "trend": "stable",
+        "monthly": "$95",
+        "mrr": "$95",
+        "arr": "$1140",
+        "trend": "up",
         "currency": "USD"
       },
-      "launchDate": "2024-01-20",
+      "launchDate": "2024-12-08",
       "featured": true,
-      "tags": ["weather", "mobile-app", "web-app"]
+      "tags": ["travel", "mobile-app", "korea", "spontaneous"]
     },
     {
-      "id": "weather-app-2026",
-      "name": "WeatherApp",
-      "description": "An elegant weather application that provides hyper-local forecasts with stunning visual design and intelligent location-based insights. Combines real-time meteorological data with advanced machine learning algorithms to deliver personalized weather predictions, severe weather alerts, and outdoor activity recommendations. Features include hourly forecasts, 10-day extended predictions, interactive radar maps, and customizable notifications for weather conditions that matter most to each user.",
-      "image": "/images/weatherapp-hero.jpg",
+      "id": "tidily-2025",
+      "name": "Tidily: AI Space Organizer",
+      "description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
+      "image": "/images/tidily-hero.jpg",
       "platforms": {
-        "web": {
-          "url": "https://weather.app",
-          "status": "launched"
-        },
         "ios": {
-          "url": "https://apps.apple.com/app/weatherapp/id987654321",
-          "status": "launched"
-        },
-        "android": {
-          "url": "https://play.google.com/store/apps/details?id=com.weatherapp",
+          "url": "https://apps.apple.com/app/tidily/id6745032874",
           "status": "launched"
         }
       },
       "management": "active",
       "users": {
-        "count": 850,
-        "trend": "stable",
+        "count": 340,
+        "trend": "up",
         "unit": "users"
       },
       "revenue": {
-        "monthly": "$120",
-        "mrr": "$120",
-        "arr": "$1440",
-        "trend": "stable",
+        "monthly": "$125",
+        "mrr": "$125",
+        "arr": "$1500",
+        "trend": "up",
         "currency": "USD"
       },
-      "launchDate": "2024-01-20",
+      "launchDate": "2025-01-15",
       "featured": true,
-      "tags": ["weather", "mobile-app", "web-app"]
+      "tags": ["productivity", "mobile-app", "ai", "organization"]
     },
     {
-      "id": "portfolio-site",
-      "name": "Portfolio Site",
-      "description": "A minimalist personal portfolio website built with modern web technologies to showcase project metrics, achievements, and professional growth. Features clean typography-focused design, real-time project status tracking, and comprehensive analytics dashboard. Designed with zero maintenance overhead in mind, the site automatically updates project statuses and metrics while maintaining exceptional performance and accessibility standards across all devices.",
-      "image": "/images/portfolio-hero.jpg",
+      "id": "mydb-2025",
+      "name": "myDB : AI Item Manager",
+      "description": "Manage your items with one photo using AI analysis and organization. Smart tool for recording and managing all your possessions with automatic image analysis that extracts product names, models, and manufacturers from packaging or labels. Features multiple category support for electronics, wines, books, easy search & filtering, data-driven insights for consumer trends, and shopping list creation. Perfect for warranty tracking, wine collection management, and building personal databases.",
+      "image": "/images/mydb-hero.jpg",
       "platforms": {
-        "web": {
-          "url": "https://evanyi.com",
-          "status": "development"
+        "ios": {
+          "url": "https://apps.apple.com/app/mydb/id6737149770",
+          "status": "launched"
         }
       },
       "management": "active",
       "users": {
-        "count": 0,
-        "trend": "stable",
-        "unit": "visitors"
+        "count": 520,
+        "trend": "up",
+        "unit": "users"
       },
       "revenue": {
-        "monthly": "$0",
-        "mrr": "$0",
-        "arr": "$0",
-        "trend": "stable",
+        "monthly": "$205",
+        "mrr": "$205",
+        "arr": "$2460",
+        "trend": "up",
         "currency": "USD"
       },
-      "launchDate": "2025-07-03",
-      "featured": false,
-      "tags": ["portfolio", "web-app"]
+      "launchDate": "2024-10-28",
+      "featured": true,
+      "tags": ["productivity", "mobile-app", "ai", "inventory", "scanner"]
     }
   ]
 }
