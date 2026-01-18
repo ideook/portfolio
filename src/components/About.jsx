@@ -1,6 +1,10 @@
+import { Link } from 'react-router-dom'
+import projectsData from '../data/projects.json'
 import styles from '../styles/components/About.module.css'
 
 function About() {
+  const { social } = projectsData
+
   return (
     <main className={styles.about}>
       <section className={styles.intro}>
@@ -23,6 +27,16 @@ function About() {
       <section className={styles.section}>
         <h3>Contact</h3>
         <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+        <p className={styles.contactItem}>
+          Email: <a href={`mailto:${social.email}`}>{social.email}</a>
+        </p>
+      </section>
+
+      <section className={styles.section}>
+        <h3>Privacy Policy</h3>
+        <p className={styles.policyText}>
+          Read our <Link to="/privacy">Privacy Policy</Link>.
+        </p>
       </section>
     </main>
   )

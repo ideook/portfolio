@@ -1,0 +1,81 @@
+.policy {
+  margin-bottom: 3rem;
+}
+
+.hero {
+  margin-bottom: 2.5rem;
+}
+
+.hero h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-secondary);
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--color-tertiary);
+  margin-top: 0.75rem;
+}
+
+.section {
+  margin-bottom: 2.25rem;
+}
+
+.section h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-secondary);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.list li {
+  font-size: 16px;
+  color: var(--color-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.note {
+  font-size: 15px;
+  color: var(--color-tertiary);
+}
+
+@media (max-width: 767px) {
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}

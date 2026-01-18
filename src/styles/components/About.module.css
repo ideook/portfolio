@@ -36,6 +36,21 @@
   color: var(--color-secondary);
 }
 
+.contactItem {
+  margin-top: 0.75rem;
+  font-size: 16px;
+}
+
+.contactItem a {
+  color: var(--color-accent);
+}
+
+.policyText {
+  margin-top: 0.5rem;
+  font-size: 15px;
+  color: var(--color-tertiary);
+}
+
 .techList {
   list-style: none;
   padding: 0;
