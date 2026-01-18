@@ -1,137 +1,190 @@
 {
-  "meta": {
-    "lastUpdated": "2025-07-03T10:30:00Z",
-    "version": "1.0.0"
-  },
-  "navigation": {
-    "primaryProjects": [
-      {
-        "name": "TaskFlow",
-        "url": "https://taskflow.app"
-      },
-      {
-        "name": "WeatherApp",
-        "url": "https://weather.app"
-      }
-    ]
-  },
-  "social": {
-    "twitter": "https://x.com/evanyi_81",
-    "email": "dukhyun.lee@brdglab.kr",
-    "github": "https://github.com/ideook"
-  },
-  "projects": [
-    {
-      "id": "thinka-2025",
-      "name": "Thinka - AI Idea Recorder",
-      "description": "A minimalist, intelligent app designed to help you capture and organize your thoughts effortlessly. Features voice recording, AI transcription and summarization, project-based organization, and professional document generation. Transform ideas into insights with seamless voice and text input support, simple gesture controls, and unlimited projects with Thinka Pro subscription.",
-      "image": "/images/thinka-hero.jpg",
-      "platforms": {
-        "ios": {
-          "url": "https://apps.apple.com/app/thinka/id123456790",
-          "status": "launched"
-        }
-      },
-      "management": "active",
-      "users": {
-        "count": 450,
-        "trend": "up",
-        "unit": "users"
-      },
-      "revenue": {
-        "monthly": "$180",
-        "mrr": "$180",
-        "arr": "$2160",
-        "trend": "up",
-        "currency": "USD"
-      },
-      "launchDate": "2024-11-15",
-      "featured": true,
-      "tags": ["productivity", "mobile-app", "ai"]
-    },
-    {
-      "id": "k-random-trip-2025",
-      "name": "K-Random Trip: Korea Travel",
-      "description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
-      "image": "/images/k-random-trip-hero.jpg",
-      "platforms": {
-        "ios": {
-          "url": "https://apps.apple.com/app/k-random-trip/id6738627897",
-          "status": "launched"
-        }
-      },
-      "management": "active",
-      "users": {
-        "count": 280,
-        "trend": "up",
-        "unit": "users"
-      },
-      "revenue": {
-        "monthly": "$95",
-        "mrr": "$95",
-        "arr": "$1140",
-        "trend": "up",
-        "currency": "USD"
-      },
-      "launchDate": "2024-12-08",
-      "featured": true,
-      "tags": ["travel", "mobile-app", "korea", "spontaneous"]
-    },
-    {
-      "id": "tidily-2025",
-      "name": "Tidily: AI Space Organizer",
-      "description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
-      "image": "/images/tidily-hero.jpg",
-      "platforms": {
-        "ios": {
-          "url": "https://apps.apple.com/app/tidily/id6745032874",
-          "status": "launched"
-        }
-      },
-      "management": "active",
-      "users": {
-        "count": 340,
-        "trend": "up",
-        "unit": "users"
-      },
-      "revenue": {
-        "monthly": "$125",
-        "mrr": "$125",
-        "arr": "$1500",
-        "trend": "up",
-        "currency": "USD"
-      },
-      "launchDate": "2025-01-15",
-      "featured": true,
-      "tags": ["productivity", "mobile-app", "ai", "organization"]
-    },
-    {
-      "id": "mydb-2025",
-      "name": "myDB : AI Item Manager",
-      "description": "Manage your items with one photo using AI analysis and organization. Smart tool for recording and managing all your possessions with automatic image analysis that extracts product names, models, and manufacturers from packaging or labels. Features multiple category support for electronics, wines, books, easy search & filtering, data-driven insights for consumer trends, and shopping list creation. Perfect for warranty tracking, wine collection management, and building personal databases.",
-      "image": "/images/mydb-hero.jpg",
-      "platforms": {
-        "ios": {
-          "url": "https://apps.apple.com/app/mydb/id6737149770",
-          "status": "launched"
-        }
-      },
-      "management": "active",
-      "users": {
-        "count": 520,
-        "trend": "up",
-        "unit": "users"
-      },
-      "revenue": {
-        "monthly": "$205",
-        "mrr": "$205",
-        "arr": "$2460",
-        "trend": "up",
-        "currency": "USD"
-      },
-      "launchDate": "2024-10-28",
-      "featured": true,
-      "tags": ["productivity", "mobile-app", "ai", "inventory", "scanner"]
-    }
-  ]
+	"meta": {
+		"lastUpdated": "2025-07-03T10:30:00Z",
+		"version": "1.0.0"
+	},
+	"navigation": {
+		"primaryProjects": [
+			{
+				"name": "TaskFlow",
+				"url": "https://taskflow.app"
+			},
+			{
+				"name": "Then Weather",
+				"url": "https://www.thenweather.com"
+			}
+		]
+	},
+	"social": {
+		"twitter": "https://x.com/evanyi_81",
+		"email": "dukhyun.lee@brdglab.kr",
+		"github": "https://github.com/ideook"
+	},
+	"projects": [
+		{
+			"id": "thinka-2025",
+			"name": "Thinka - AI Idea Recorder",
+			"description": "A minimalist, intelligent app designed to help you capture and organize your thoughts effortlessly. Features voice recording, AI transcription and summarization, project-based organization, and professional document generation. Transform ideas into insights with seamless voice and text input support, simple gesture controls, and unlimited projects with Thinka Pro subscription.",
+			"image": "/images/thinka-hero.jpg",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/thinka/id123456790",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 450,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$180",
+				"mrr": "$180",
+				"arr": "$2160",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2024-11-15",
+			"featured": true,
+			"tags": [
+				"productivity",
+				"mobile-app",
+				"ai"
+			]
+		},
+		{
+			"id": "k-random-trip-2025",
+			"name": "K-Random Trip: Korea Travel",
+			"description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
+			"image": "/images/k-random-trip-hero.jpg",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/k-random-trip/id6738627897",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 280,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$95",
+				"mrr": "$95",
+				"arr": "$1140",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2024-12-08",
+			"featured": true,
+			"tags": [
+				"travel",
+				"mobile-app",
+				"korea",
+				"spontaneous"
+			]
+		},
+		{
+			"id": "tidily-2025",
+			"name": "Tidily: AI Space Organizer",
+			"description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
+			"image": "/images/tidily-hero.jpg",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/tidily/id6745032874",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 340,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$125",
+				"mrr": "$125",
+				"arr": "$1500",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2025-01-15",
+			"featured": true,
+			"tags": [
+				"productivity",
+				"mobile-app",
+				"ai",
+				"organization"
+			]
+		},
+		{
+			"id": "mydb-2025",
+			"name": "myDB : AI Item Manager",
+			"description": "Manage your items with one photo using AI analysis and organization. Smart tool for recording and managing all your possessions with automatic image analysis that extracts product names, models, and manufacturers from packaging or labels. Features multiple category support for electronics, wines, books, easy search & filtering, data-driven insights for consumer trends, and shopping list creation. Perfect for warranty tracking, wine collection management, and building personal databases.",
+			"image": "/images/mydb-hero.jpg",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/mydb/id6737149770",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 520,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$205",
+				"mrr": "$205",
+				"arr": "$2460",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2024-10-28",
+			"featured": true,
+			"tags": [
+				"productivity",
+				"mobile-app",
+				"ai",
+				"inventory",
+				"scanner"
+			]
+		},
+		{
+			"id": "then-weather-2025",
+			"name": "Then Weather",
+			"description": "Weather-based travel destination recommendation service that analyzes weather data from around the world to recommend optimal travel destinations. Find regions that match your desired temperature and weather conditions for specific dates, or check past weather patterns for planned destinations to make more informed travel plans.",
+			"image": "/images/then-weather-hero.jpg",
+			"platforms": {
+				"web": {
+					"url": "https://www.thenweather.com",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 850,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$45",
+				"mrr": "$45",
+				"arr": "$540",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2024-09-12",
+			"featured": true,
+			"tags": [
+				"travel",
+				"web-app",
+				"weather",
+				"recommendations"
+			]
+		}
+	]
 }
