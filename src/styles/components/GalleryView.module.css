@@ -188,15 +188,20 @@
 
 @media (max-width: 767px) {
   .viewportContainer {
-    height: 100dvh;
-    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .galleryContainer {
     width: 100% !important;
-    height: 100%;
-    overflow: hidden;
-    padding: 10px;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    padding: 12px;
   }
 
   .galleryContainer.panelOpen {
@@ -204,7 +209,68 @@
   }
 
   .galleryGrid {
-    gap: 8px;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+  }
+
+  .profileCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    padding: 7px 10px;
+  }
+
+  .profileCard::before {
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+  }
+
+  .profileTop {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: 2;
+    gap: 4px;
+    margin-left: 10px;
+  }
+
+  .profileSocialLink {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  .profileBottom {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    order: 1;
+    padding: 0;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profileRole {
+    display: block;
+    font-size: 9px;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .profileName {
+    font-size: 17px;
+    line-height: 1.05;
+  }
+
+  .profileArrow {
+    display: none;
   }
 }
 

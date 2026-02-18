@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"lastUpdated": "2025-07-03T10:30:00Z",
+		"lastUpdated": "2026-02-18T12:20:05.487Z",
 		"version": "1.0.0"
 	},
 	"navigation": {
@@ -121,6 +121,7 @@
 		{
 			"id": "mydb-2025",
 			"name": "myDB : AI Item Manager",
+			"hidden": true,
 			"description": "Manage your items with one photo using AI analysis and organization. Smart tool for recording and managing all your possessions with automatic image analysis that extracts product names, models, and manufacturers from packaging or labels. Features multiple category support for electronics, wines, books, easy search & filtering, data-driven insights for consumer trends, and shopping list creation. Perfect for warranty tracking, wine collection management, and building personal databases.",
 			"image": "/images/mydb-hero.jpg",
 			"platforms": {
@@ -153,181 +154,13 @@
 			]
 		},
 		{
-			"id": "focusflow-2025",
-			"name": "FocusFlow",
-			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-			"platforms": {
-				"ios": {
-					"url": "https://apps.apple.com/app/focusflow/id9000000001",
-					"status": "launched"
-				}
-			},
-			"management": "active",
-			"users": {
-				"count": 1200,
-				"trend": "up",
-				"unit": "users"
-			},
-			"revenue": {
-				"monthly": "$310",
-				"mrr": "$310",
-				"arr": "$3720",
-				"trend": "up",
-				"currency": "USD"
-			},
-			"launchDate": "2025-02-01",
-			"featured": false,
-			"tags": [
-				"productivity",
-				"mobile-app",
-				"focus",
-				"timer"
-			]
-		},
-		{
-			"id": "mealplan-2025",
-			"name": "MealPlan AI",
-			"description": "AI-powered weekly meal planner that generates personalized recipes based on your dietary preferences, pantry inventory, and budget. Automatically creates a shopping list sorted by supermarket aisle, tracks nutritional intake, and suggests leftover-friendly recipes to minimize food waste. Supports 15+ diet types including keto, vegan, and Mediterranean.",
-			"platforms": {
-				"web": {
-					"url": "https://mealplan.ai",
-					"status": "launched"
-				},
-				"ios": {
-					"url": "https://apps.apple.com/app/mealplan/id9000000002",
-					"status": "development"
-				}
-			},
-			"management": "active",
-			"users": {
-				"count": 670,
-				"trend": "up",
-				"unit": "users"
-			},
-			"revenue": {
-				"monthly": "$420",
-				"mrr": "$420",
-				"arr": "$5040",
-				"trend": "up",
-				"currency": "USD"
-			},
-			"launchDate": "2025-03-10",
-			"featured": false,
-			"tags": [
-				"health",
-				"web-app",
-				"ai",
-				"food"
-			]
-		},
-		{
-			"id": "spendsmart-2025",
-			"name": "SpendSmart",
-			"description": "Personal finance tracker that automatically categorizes your expenses from bank SMS and receipts using on-device AI — no bank login required. Visualizes spending patterns with beautiful weekly/monthly charts, sets category budgets with real-time alerts, and offers a bill calendar so you never miss a payment. Privacy-first: all data encrypted locally.",
-			"platforms": {
-				"ios": {
-					"url": "https://apps.apple.com/app/spendsmart/id9000000003",
-					"status": "launched"
-				}
-			},
-			"management": "maintenance",
-			"users": {
-				"count": 930,
-				"trend": "stable",
-				"unit": "users"
-			},
-			"revenue": {
-				"monthly": "$155",
-				"mrr": "$155",
-				"arr": "$1860",
-				"trend": "stable",
-				"currency": "USD"
-			},
-			"launchDate": "2024-07-22",
-			"featured": false,
-			"tags": [
-				"finance",
-				"mobile-app",
-				"ai",
-				"budget"
-			]
-		},
-		{
-			"id": "localfinder-2025",
-			"name": "LocalFinder",
-			"description": "Hyper-local discovery app that surfaces hidden gems near you — independent cafés, street markets, pop-up events, and neighborhood spots that never make it onto mainstream review platforms. Powered by community contributions and curated by local editors in 12 cities. No ads, no sponsored listings. Just genuine local recommendations worth your time.",
-			"platforms": {
-				"ios": {
-					"url": "https://apps.apple.com/app/localfinder/id9000000004",
-					"status": "launched"
-				},
-				"android": {
-					"url": "https://play.google.com/store/apps/details?id=com.localfinder",
-					"status": "launched"
-				}
-			},
-			"management": "active",
-			"users": {
-				"count": 2100,
-				"trend": "up",
-				"unit": "users"
-			},
-			"revenue": {
-				"monthly": "$0",
-				"mrr": "$0",
-				"arr": "$0",
-				"trend": "stable",
-				"currency": "USD"
-			},
-			"launchDate": "2024-06-05",
-			"featured": false,
-			"tags": [
-				"travel",
-				"mobile-app",
-				"community",
-				"local"
-			]
-		},
-		{
-			"id": "sketchnote-2025",
-			"name": "Sketchnote",
-			"description": "Visual note-taking app designed for thinkers who prefer drawing over typing. Combine handwriting, sketches, and typed text on an infinite canvas. Features smart shape recognition, automatic layout suggestions, export to PDF/PNG, and iCloud sync across devices. Ideal for meeting notes, brainstorming sessions, and lecture summaries that are actually worth reviewing.",
-			"platforms": {
-				"ios": {
-					"url": "https://apps.apple.com/app/sketchnote/id9000000005",
-					"status": "development"
-				}
-			},
-			"management": "active",
-			"users": {
-				"count": 0,
-				"trend": "stable",
-				"unit": "users"
-			},
-			"revenue": {
-				"monthly": "$0",
-				"mrr": "$0",
-				"arr": "$0",
-				"trend": "stable",
-				"currency": "USD"
-			},
-			"launchDate": "2025-06-01",
-			"featured": false,
-			"tags": [
-				"productivity",
-				"mobile-app",
-				"notes",
-				"canvas"
-			]
-		},
-		{
 			"id": "then-weather-2025",
 			"name": "Then Weather",
 			"description": "Weather-based travel destination recommendation service that analyzes weather data from around the world to recommend optimal travel destinations. Find regions that match your desired temperature and weather conditions for specific dates, or check past weather patterns for planned destinations to make more informed travel plans.",
 			"image": "/images/then-weather-hero.jpg",
 			"platforms": {
 				"web": {
-					"url": "https://www.thenweather.com",
+					"url": "https://thenweather.com",
 					"status": "launched"
 				}
 			},
@@ -352,6 +185,264 @@
 				"weather",
 				"recommendations"
 			]
+		},
+		{
+			"id": "tentdb-2026",
+			"name": "Tent DB",
+			"image": "https://picsum.photos/seed/tentdb-2026/1200/800",
+			"platforms": {
+				"web": {
+					"url": "https://tentdb.kr",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 740,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$110",
+				"mrr": "$110",
+				"arr": "$1320",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2025-11-22",
+			"featured": false,
+			"tags": [
+				"web-app",
+				"database",
+				"productivity"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "jigeumgogo-2026",
+			"name": "지금고고",
+			"image": "https://picsum.photos/seed/jigeumgogo-2026/1200/800",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/id6738627897",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 510,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$72",
+				"mrr": "$72",
+				"arr": "$864",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2025-10-04",
+			"featured": false,
+			"tags": [
+				"mobile-app",
+				"travel",
+				"location"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "parking-classifier-2026",
+			"name": "주차차량 분류",
+			"image": "https://picsum.photos/seed/parking-classifier-2026/1200/800",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/id6757954080",
+					"status": "launched"
+				}
+			},
+			"management": "maintenance",
+			"users": {
+				"count": 320,
+				"trend": "stable",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$38",
+				"mrr": "$38",
+				"arr": "$456",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2025-08-19",
+			"featured": false,
+			"tags": [
+				"mobile-app",
+				"vision",
+				"parking"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "writone-2026",
+			"name": "Writone",
+			"image": "https://picsum.photos/seed/writone-2026/1200/800",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/id6758207392",
+					"status": "launched"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 1280,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$220",
+				"mrr": "$220",
+				"arr": "$2640",
+				"trend": "up",
+				"currency": "USD"
+			},
+			"launchDate": "2025-12-02",
+			"featured": false,
+			"tags": [
+				"mobile-app",
+				"translation",
+				"writing"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "siseon-2026",
+			"name": "시선",
+			"image": "https://picsum.photos/seed/siseon-2026/1200/800",
+			"platforms": {
+				"ios": {
+					"url": "https://apps.apple.com/app/siseon/id9000000104",
+					"status": "development"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 0,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$0",
+				"mrr": "$0",
+				"arr": "$0",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2026-03-20",
+			"featured": false,
+			"tags": [
+				"mobile-app",
+				"camera",
+				"poetry"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "bimspark-2026",
+			"name": "BIMSpark",
+			"image": "https://picsum.photos/seed/bimspark-2026/1200/800",
+			"platforms": {
+				"web": {
+					"url": "https://bimspark.app",
+					"status": "development"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 0,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$0",
+				"mrr": "$0",
+				"arr": "$0",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2026-04-10",
+			"featured": false,
+			"tags": [
+				"web-app",
+				"saas",
+				"bim"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "jobrisk-ai-2026",
+			"name": "직업위험도 AI",
+			"image": "https://picsum.photos/seed/jobrisk-ai-2026/1200/800",
+			"platforms": {
+				"web": {
+					"url": "https://jobrisk-ai.app",
+					"status": "development"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 0,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$0",
+				"mrr": "$0",
+				"arr": "$0",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2026-05-03",
+			"featured": false,
+			"tags": [
+				"web-app",
+				"saas",
+				"ai",
+				"assessment"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+		},
+		{
+			"id": "mypc-platform-2026",
+			"name": "MyPC",
+			"image": "https://picsum.photos/seed/mypc-platform-2026/1200/800",
+			"platforms": {
+				"web": {
+					"url": "https://mypcplatform.app",
+					"status": "development"
+				}
+			},
+			"management": "active",
+			"users": {
+				"count": 0,
+				"trend": "up",
+				"unit": "users"
+			},
+			"revenue": {
+				"monthly": "$0",
+				"mrr": "$0",
+				"arr": "$0",
+				"trend": "stable",
+				"currency": "USD"
+			},
+			"launchDate": "2026-06-01",
+			"featured": false,
+			"tags": [
+				"web-app",
+				"saas",
+				"pc",
+				"community"
+			],
+			"description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
 		}
 	]
 }

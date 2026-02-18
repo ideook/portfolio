@@ -1,11 +1,31 @@
+import { useEffect, useRef, useState } from 'react'
 import { PLATFORM_ICONS, PLATFORM_LABELS } from '../utils/platformIcons'
 import { getStatusLabel, getStatusColor, TREND_ICONS } from '../utils/statusUtils'
 import projectsData from '../data/projects.json'
 import styles from '../styles/components/DetailPanel.module.css'
 
+const MOBILE_BREAKPOINT = 767
+const SWIPE_CLOSE_THRESHOLD = 110
+const SWIPE_CLOSE_VELOCITY = 0.65
+const MAX_DRAG_OFFSET = 260
+
 function DetailPanel({ project, isVisible, onClose }) {
+  const panelContentRef = useRef(null)
+  const dragOffsetRef = useRef(0)
+  const dragStateRef = useRef({
+    canDrag: false,
+    startY: 0,
+    lastY: 0,
+    startTime: 0,
+  })
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200,
+  )
+  const [sheetDragY, setSheetDragY] = useState(0)
+  const [isDraggingSheet, setIsDraggingSheet] = useState(false)
   const { social } = projectsData
   const isProfile = project?._isProfile === true
+  const isMobile = viewportWidth <= MOBILE_BREAKPOINT
 
   const statusLabel = project && !isProfile ? getStatusLabel(project) : ''
   const statusColor = project && !isProfile ? getStatusColor(project) : {}
@@ -13,6 +33,78 @@ function DetailPanel({ project, isVisible, onClose }) {
   function handleKeyDown(e) {
     if (e.key === 'Escape') onClose()
   }
+
+  function handleTouchStart(e) {
+    if (!isMobile || !isVisible || e.touches.length !== 1) return
+    const panelEl = panelContentRef.current
+    if (!panelEl) return
+
+    const y = e.touches[0].clientY
+    dragStateRef.current = {
+      canDrag: panelEl.scrollTop <= 0,
+      startY: y,
+      lastY: y,
+      startTime: performance.now(),
+    }
+    dragOffsetRef.current = 0
+    setIsDraggingSheet(false)
+  }
+
+  function handleTouchMove(e) {
+    if (!isMobile || !isVisible || e.touches.length !== 1) return
+    if (!dragStateRef.current.canDrag) return
+
+    const y = e.touches[0].clientY
+    const delta = y - dragStateRef.current.startY
+    dragStateRef.current.lastY = y
+
+    if (delta <= 0) {
+      if (!isDraggingSheet) return
+      dragOffsetRef.current = 0
+      setSheetDragY(0)
+      return
+    }
+
+    if (e.cancelable) e.preventDefault()
+    const nextOffset = Math.min(MAX_DRAG_OFFSET, delta)
+    dragOffsetRef.current = nextOffset
+    setIsDraggingSheet(true)
+    setSheetDragY(nextOffset)
+  }
+
+  function handleTouchEnd() {
+    if (!isMobile || !isVisible) return
+
+    const dragDistance = dragOffsetRef.current
+    const elapsed = Math.max(1, performance.now() - dragStateRef.current.startTime)
+    const velocity = dragDistance / elapsed
+    const shouldClose = dragDistance > SWIPE_CLOSE_THRESHOLD
+      || (dragDistance > 48 && velocity > SWIPE_CLOSE_VELOCITY)
+
+    dragStateRef.current.canDrag = false
+    dragOffsetRef.current = 0
+    setIsDraggingSheet(false)
+    setSheetDragY(0)
+    if (shouldClose) onClose()
+  }
+
+  useEffect(() => {
+    function handleResize() {
+      setViewportWidth(window.innerWidth)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) {
+      dragStateRef.current.canDrag = false
+      dragOffsetRef.current = 0
+      setIsDraggingSheet(false)
+      setSheetDragY(0)
+    }
+  }, [isVisible])
 
   return (
     <aside
@@ -22,7 +114,24 @@ function DetailPanel({ project, isVisible, onClose }) {
       aria-label="Details"
       aria-hidden={!isVisible}
     >
-      <div className={styles.panelContent}>
+      <button
+        type="button"
+        className={styles.backdrop}
+        onClick={onClose}
+        aria-label="Close details panel"
+        tabIndex={-1}
+      />
+      <div
+        ref={panelContentRef}
+        className={[styles.panelContent, isDraggingSheet ? styles.dragging : ''].filter(Boolean).join(' ')}
+        style={isMobile ? { '--sheet-drag-y': `${sheetDragY}px` } : undefined}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+      >
+        <div className={styles.sheetHandle} aria-hidden="true" />
+
         {/* Close button */}
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close panel">
           <span className={styles.closeX}>X</span>

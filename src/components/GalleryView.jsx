@@ -8,6 +8,8 @@ const PROFILE_ITEM = { _isProfile: true }
 const MIN_TILE_COLS = 2
 const MIN_TILE_ROWS = 2
 const DETAIL_PANEL_RATIO = 0.3333
+const MOBILE_BREAKPOINT = 767
+const MOBILE_SINGLE_COL_BREAKPOINT = 560
 
 function hashString(value) {
   let hash = 2166136261
@@ -323,6 +325,83 @@ function buildLayout(projects) {
   }
 }
 
+function buildMobileLayout(projects, viewportWidth) {
+  const cols = viewportWidth <= MOBILE_SINGLE_COL_BREAKPOINT ? 1 : 2
+  const profileRect = { x: 0, y: 0, w: cols, h: 1 }
+  const placements = {}
+
+  if (cols === 1) {
+    const heightPattern = [3, 2, 3, 2, 4]
+    let y = profileRect.h
+
+    projects.forEach((project, idx) => {
+      const h = heightPattern[idx % heightPattern.length]
+      placements[project.id] = {
+        x: 0,
+        y,
+        w: 1,
+        h,
+        tilt: 0,
+        shiftX: '0px',
+        shiftY: '0px',
+      }
+      y += h
+    })
+
+    return {
+      cols,
+      rows: y,
+      profileRect,
+      placements,
+    }
+  }
+
+  const columnHeights = [profileRect.h, profileRect.h]
+  const unitHeightPattern = [2, 3, 2, 3, 2, 4]
+
+  projects.forEach((project, idx) => {
+    const h = unitHeightPattern[idx % unitHeightPattern.length]
+    const shouldSpanBoth = idx % 4 === 0 && columnHeights[0] === columnHeights[1]
+
+    if (shouldSpanBoth) {
+      const y = columnHeights[0]
+      const spanH = idx % 8 === 0 ? 3 : 2
+      placements[project.id] = {
+        x: 0,
+        y,
+        w: 2,
+        h: spanH,
+        tilt: 0,
+        shiftX: '0px',
+        shiftY: '0px',
+      }
+      columnHeights[0] = y + spanH
+      columnHeights[1] = y + spanH
+      return
+    }
+
+    const column = columnHeights[0] <= columnHeights[1] ? 0 : 1
+    const y = columnHeights[column]
+    placements[project.id] = {
+      x: column,
+      y,
+      w: 1,
+      h,
+      tilt: 0,
+      shiftX: '0px',
+      shiftY: '0px',
+    }
+    columnHeights[column] += h
+  })
+
+  return {
+    cols,
+    rows: Math.max(...columnHeights),
+    profileRect,
+    placements,
+  }
+}
+
 function getGalleryNudgeX({ isPanelOpen, selectedProject, layout }) {
   if (!isPanelOpen || !selectedProject || selectedProject._isProfile) return '0px'
   const placement = layout.placements[selectedProject.id]
@@ -341,14 +420,32 @@ function getGalleryNudgeX({ isPanelOpen, selectedProject, layout }) {
 function GalleryView() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isPanelOpen, setIsPanelOpen] = useState(false)
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200,
+  )
   const isProfileSelected = selectedProject?._isProfile === true
+  const isMobile = viewportWidth <= MOBILE_BREAKPOINT
+  const mobileProfileRowHeight = viewportWidth <= MOBILE_SINGLE_COL_BREAKPOINT ? 64 : 72
+  const mobileCardRowHeight = viewportWidth <= MOBILE_SINGLE_COL_BREAKPOINT ? 94 : 104
 
   const { projects, social } = projectsData
-  const layout = useMemo(() => buildLayout(projects), [projects])
+  const visibleProjects = useMemo(
+    () => projects.filter((project) => project.hidden !== true),
+    [projects],
+  )
+  const layout = useMemo(
+    () => (isMobile ? buildMobileLayout(visibleProjects, viewportWidth) : buildLayout(visibleProjects)),
+    [visibleProjects, isMobile, viewportWidth],
+  )
   const galleryNudgeX = useMemo(
     () => getGalleryNudgeX({ isPanelOpen, selectedProject, layout }),
     [isPanelOpen, selectedProject, layout],
   )
+  const mobileGridTemplateRows = useMemo(() => {
+    if (!isMobile) return undefined
+    if (layout.rows <= 1) return `${mobileProfileRowHeight}px`
+    return `${mobileProfileRowHeight}px repeat(${layout.rows - 1}, ${mobileCardRowHeight}px)`
+  }, [isMobile, layout.rows, mobileProfileRowHeight, mobileCardRowHeight])
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -357,6 +454,16 @@ function GalleryView() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isPanelOpen])
+
+  useEffect(() => {
+    function handleResize() {
+      setViewportWidth(window.innerWidth)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   function handleCardClick(item) {
     const isSame = item._isProfile
@@ -386,6 +493,7 @@ function GalleryView() {
           style={{
             '--grid-cols': layout.cols,
             '--grid-rows': layout.rows,
+            ...(mobileGridTemplateRows ? { gridTemplateRows: mobileGridTemplateRows } : {}),
           }}
         >
 
@@ -433,7 +541,7 @@ function GalleryView() {
           </article>
 
           {/* Project cards */}
-          {projects.map((project) => {
+          {visibleProjects.map((project) => {
             const placement = layout.placements[project.id]
             if (!placement) return null
             return (

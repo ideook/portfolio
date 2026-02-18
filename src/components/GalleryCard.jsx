@@ -58,8 +58,10 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
       {hasImage && <div className={styles.overlay} />}
 
       {hasImage ? (
-        <div className={styles.textContent}>
-          <h2 className={styles.projectName}>{project.name}</h2>
+        <>
+          <div className={styles.textContent}>
+            <h2 className={styles.projectName}>{project.name}</h2>
+          </div>
           {displayTags.length > 0 && (
             <div className={styles.tagsBottomRight}>
               {displayTags.map((tag) => (
@@ -67,7 +69,7 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
               ))}
             </div>
           )}
-        </div>
+        </>
       ) : (
         <>
           <div className={styles.textContentCenter}>
