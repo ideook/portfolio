@@ -1,5 +1,8 @@
 .viewportContainer {
   --detail-panel-width: 33.33vw;
+  --panel-motion-duration: 560ms;
+  --panel-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -15,11 +18,16 @@
   height: 100%;
   padding: clamp(12px, 2vw, 28px);
   overflow: hidden;
-  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+  transition:
+    transform var(--panel-motion-duration) var(--panel-motion-ease),
+    filter 260ms ease;
+  will-change: transform, filter;
 }
 
 .galleryContainer.panelOpen {
-  width: calc(100% - var(--detail-panel-width));
+  transform: translateX(var(--gallery-nudge-x, 0px));
+  filter: saturate(0.97) brightness(0.99);
 }
 
 /* Dynamic mosaic generated from project count */
@@ -102,6 +110,7 @@
   display: flex;
   gap: 6px;
   z-index: 2;
+  transition: opacity 140ms ease;
 }
 
 .profileSocialLink {
@@ -136,6 +145,7 @@
   flex-direction: column;
   gap: 2px;
   z-index: 2;
+  transition: opacity 140ms ease;
 }
 
 .profileRole {
@@ -189,7 +199,22 @@
     padding: 10px;
   }
 
+  .galleryContainer.panelOpen {
+    transform: none;
+  }
+
   .galleryGrid {
     gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryContainer {
+    transition-duration: 0ms !important;
+  }
+
+  .profileTop,
+  .profileBottom {
+    transition-duration: 0ms !important;
   }
 }

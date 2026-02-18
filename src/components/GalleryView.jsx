@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useRef } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import GalleryCard from './GalleryCard'
 import DetailPanel from './DetailPanel'
 import projectsData from '../data/projects.json'
@@ -7,6 +7,7 @@ import styles from '../styles/components/GalleryView.module.css'
 const PROFILE_ITEM = { _isProfile: true }
 const MIN_TILE_COLS = 2
 const MIN_TILE_ROWS = 2
+const DETAIL_PANEL_RATIO = 0.3333
 
 function hashString(value) {
   let hash = 2166136261
@@ -322,14 +323,32 @@ function buildLayout(projects) {
   }
 }
 
+function getGalleryNudgeX({ isPanelOpen, selectedProject, layout }) {
+  if (!isPanelOpen || !selectedProject || selectedProject._isProfile) return '0px'
+  const placement = layout.placements[selectedProject.id]
+  if (!placement) return '0px'
+
+  const panelStartRatio = 1 - DETAIL_PANEL_RATIO
+  const cardRightRatio = (placement.x + placement.w) / layout.cols
+  const safeMarginRatio = 0.02
+  const requiredShiftRatio = cardRightRatio - (panelStartRatio - safeMarginRatio)
+  if (requiredShiftRatio <= 0) return '0px'
+
+  const nudgeVW = Math.min(33, Math.max(6, requiredShiftRatio * 100))
+  return `-${nudgeVW.toFixed(2)}vw`
+}
+
 function GalleryView() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [isPanelOpen, setIsPanelOpen] = useState(false)
-  const closeTimerRef = useRef(null)
   const isProfileSelected = selectedProject?._isProfile === true
 
   const { projects, social } = projectsData
   const layout = useMemo(() => buildLayout(projects), [projects])
+  const galleryNudgeX = useMemo(
+    () => getGalleryNudgeX({ isPanelOpen, selectedProject, layout }),
+    [isPanelOpen, selectedProject, layout],
+  )
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -339,15 +358,7 @@ function GalleryView() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isPanelOpen])
 
-  useEffect(() => {
-    return () => { if (closeTimerRef.current) clearTimeout(closeTimerRef.current) }
-  }, [])
-
   function handleCardClick(item) {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current)
-      closeTimerRef.current = null
-    }
     const isSame = item._isProfile
       ? selectedProject?._isProfile
       : selectedProject?.id === item.id
@@ -358,15 +369,18 @@ function GalleryView() {
 
   function handlePanelClose() {
     setIsPanelOpen(false)
-    closeTimerRef.current = setTimeout(() => {
-      setSelectedProject(null)
-      closeTimerRef.current = null
-    }, 460)
+    setSelectedProject(null)
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
   }
 
   return (
     <div className={styles.viewportContainer}>
-      <div className={[styles.galleryContainer, isPanelOpen ? styles.panelOpen : ''].filter(Boolean).join(' ')}>
+      <div
+        className={[styles.galleryContainer, isPanelOpen ? styles.panelOpen : ''].filter(Boolean).join(' ')}
+        style={{ '--gallery-nudge-x': galleryNudgeX }}
+      >
         <div
           className={styles.galleryGrid}
           style={{

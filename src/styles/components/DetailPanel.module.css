@@ -1,20 +1,25 @@
 .panel {
-  position: relative;
-  flex-shrink: 0;
-  width: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--detail-panel-width, 33.33vw);
   height: 100%;
   overflow: hidden;
   background: var(--color-background-alt);
   border-left: 1px solid var(--color-border);
   transform: translateX(100%);
+  pointer-events: none;
   transition:
-    width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    transform var(--panel-motion-duration, 560ms) var(--panel-motion-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow var(--panel-motion-duration, 560ms) var(--panel-motion-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  will-change: transform;
 }
 
 .panel.visible {
-  width: var(--detail-panel-width, 33.33vw);
   transform: translateX(0);
+  pointer-events: auto;
+  box-shadow: -18px 0 34px rgba(15, 23, 42, 0.08);
 }
 
 .panelContent {
@@ -26,12 +31,22 @@
   flex-direction: column;
   gap: 16px;
   opacity: 0;
-  transition: opacity 0.25s ease 0.15s;
+  transform: translateX(14px) scale(0.985);
+  filter: blur(6px);
+  transition:
+    opacity 320ms ease,
+    transform var(--panel-motion-duration, 560ms) var(--panel-motion-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    filter 420ms ease;
+  transition-delay: 0ms, 0ms, 0ms;
   min-width: 280px;
+  will-change: opacity, transform, filter;
 }
 
 .panel.visible .panelContent {
   opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0);
+  transition-delay: 70ms, 40ms, 40ms;
 }
 
 /* Close button */
@@ -413,12 +428,25 @@
   .panel {
     position: fixed;
     inset: 0;
-    width: 0 !important;
+    width: 100% !important;
     height: 100%;
     z-index: 50;
   }
 
   .panel.visible {
     width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panelContent {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+    filter: none !important;
+  }
+
+  .panelContent {
+    transform: none !important;
   }
 }

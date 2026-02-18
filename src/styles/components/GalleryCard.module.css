@@ -97,6 +97,7 @@
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.01em;
   line-height: 1;
+  transition: opacity 140ms ease;
 }
 
 .tagDark {
@@ -106,6 +107,7 @@
   color: #bbb;
   letter-spacing: 0.01em;
   line-height: 1;
+  transition: opacity 140ms ease;
 }
 
 /* ── Text: has image — bottom left ─────────────────── */
@@ -126,6 +128,7 @@
   line-height: 1.25;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
   overflow-wrap: anywhere;
+  transition: opacity 140ms ease;
 }
 
 /* ── Text: no image — centered ─────────────────────── */
@@ -150,6 +153,7 @@
   color: #111111;
   overflow-wrap: anywhere;
   word-break: keep-all;
+  transition: opacity 140ms ease;
 }
 
 .sizeSmall .textContent {
