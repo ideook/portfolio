@@ -2,8 +2,10 @@ import { useState } from 'react'
 import styles from '../styles/components/GalleryCard.module.css'
 
 function getCardSizeTier(placement) {
-  const area = placement.w * placement.h
-  const minSide = Math.min(placement.w, placement.h)
+  const sizeW = placement.sizeW ?? placement.w
+  const sizeH = placement.sizeH ?? placement.h
+  const area = sizeW * sizeH
+  const minSide = Math.min(sizeW, sizeH)
 
   if (minSide <= 2 || area <= 8) return 'small'
   if (area <= 14) return 'medium'

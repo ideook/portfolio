@@ -329,13 +329,18 @@ function buildMobileLayout(projects, viewportWidth) {
   const cols = viewportWidth <= MOBILE_SINGLE_COL_BREAKPOINT ? 1 : 2
   const profileRect = { x: 0, y: 0, w: cols, h: 1 }
   const placements = {}
+  const noImageHeight = 1
 
   if (cols === 1) {
-    const heightPattern = [3, 2, 3, 2, 4]
+    const imageHeightPattern = [3, 2, 3, 2, 4]
+    let imagePatternIndex = 0
     let y = profileRect.h
 
     projects.forEach((project, idx) => {
-      const h = heightPattern[idx % heightPattern.length]
+      const hasImage = Boolean(project.image)
+      const h = hasImage
+        ? imageHeightPattern[imagePatternIndex % imageHeightPattern.length]
+        : noImageHeight
       placements[project.id] = {
         x: 0,
         y,
@@ -345,6 +350,7 @@ function buildMobileLayout(projects, viewportWidth) {
         shiftX: '0px',
         shiftY: '0px',
       }
+      if (hasImage) imagePatternIndex += 1
       y += h
     })
 
@@ -357,11 +363,15 @@ function buildMobileLayout(projects, viewportWidth) {
   }
 
   const columnHeights = [profileRect.h, profileRect.h]
-  const unitHeightPattern = [2, 3, 2, 3, 2, 4]
+  const imageHeightPattern = [2, 3, 2, 3, 2, 4]
+  let imagePatternIndex = 0
 
   projects.forEach((project, idx) => {
-    const h = unitHeightPattern[idx % unitHeightPattern.length]
-    const shouldSpanBoth = idx % 4 === 0 && columnHeights[0] === columnHeights[1]
+    const hasImage = Boolean(project.image)
+    const h = hasImage
+      ? imageHeightPattern[imagePatternIndex % imageHeightPattern.length]
+      : noImageHeight
+    const shouldSpanBoth = hasImage && idx % 4 === 0 && columnHeights[0] === columnHeights[1]
 
     if (shouldSpanBoth) {
       const y = columnHeights[0]
@@ -377,6 +387,7 @@ function buildMobileLayout(projects, viewportWidth) {
       }
       columnHeights[0] = y + spanH
       columnHeights[1] = y + spanH
+      imagePatternIndex += 1
       return
     }
 
@@ -392,6 +403,7 @@ function buildMobileLayout(projects, viewportWidth) {
       shiftY: '0px',
     }
     columnHeights[column] += h
+    if (hasImage) imagePatternIndex += 1
   })
 
   return {
