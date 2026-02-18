@@ -3,7 +3,7 @@
 * Tent DB (웹)
 * thenweather.com (웹) — 날씨 기반 여행 목적지 탐색
 * 지금 고고 (모바일)
-* 주차 차량 분류 (모바일)
+* Parking Vehicle Classification (주차 차량 분류) (모바일)
 * Writone (모바일) — 트위터 스타일 번역/리라이트
 
 ## 2) 개발 마무리(출시 임박)
@@ -15,7 +15,7 @@
 ## 3) 구독형 SaaS로 준비 중
 
 * BIMSpark (bimspark.app)
-* AI 직업 위험도 평가 서비스
+* AI Job Risk Assessment (AI 직업위험도평가) 서비스
 * MyPC 플랫폼 - 컴퓨터 초보들이 나의 PC 를 분석하고 공유하는 플랫폼
 
 ## 5) 실험/추가 아이템

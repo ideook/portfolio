@@ -56,8 +56,19 @@
   transition: transform 0.4s ease;
 }
 
+.bgImageInset {
+  inset: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  object-fit: contain;
+}
+
 .card:hover .bgImage {
   transform: scale(1.05);
+}
+
+.card:hover .bgImageInset {
+  transform: none;
 }
 
 .bgWhite {

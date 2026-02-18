@@ -16,6 +16,7 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
   const [imageError, setImageError] = useState(false)
 
   const hasImage = Boolean(project.image) && !imageError
+  const isSvgImage = Boolean(project.image) && /\.svg($|\?)/i.test(project.image)
   const displayTags = project.tags ? project.tags.slice(0, 3) : []
   const sizeTier = getCardSizeTier(placement)
 
@@ -49,7 +50,7 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
         <img
           src={project.image}
           alt=""
-          className={styles.bgImage}
+          className={[styles.bgImage, isSvgImage ? styles.bgImageInset : ''].filter(Boolean).join(' ')}
           onError={() => setImageError(true)}
           aria-hidden="true"
         />

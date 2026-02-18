@@ -28,7 +28,7 @@ export const PLATFORM_ICONS = {
 }
 
 export const PLATFORM_LABELS = {
-  ios: 'iOS',
+  ios: 'App Store',
   android: 'Android',
-  web: 'Web',
+  web: 'Web Page',
 }

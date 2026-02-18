@@ -57,10 +57,10 @@
 			"id": "k-random-trip-2025",
 			"name": "K-Random Trip",
 			"description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
-			"image": "https://picsum.photos/seed/jigeumgogo-2026/1200/800",
+			"image": "/images/k-random-trip-hero.png",
 			"platforms": {
 				"ios": {
-					"url": "https://apps.apple.com/app/id6738627897",
+					"url": "https://apps.apple.com/kr/app/%EC%A7%80%EA%B8%88%EA%B3%A0%EA%B3%A0-%EC%A6%89%ED%9D%A5-%EB%9E%9C%EB%8D%A4-%EC%97%AC%ED%96%89/id6738627897",
 					"status": "launched"
 				}
 			},
@@ -90,7 +90,6 @@
 			"id": "tidily-2025",
 			"name": "Tidily",
 			"description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
-			"image": "/images/tidily-hero.jpg",
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/tidily/id6745032874",
@@ -158,7 +157,7 @@
 			"id": "then-weather-2025",
 			"name": "Then Weather",
 			"description": "Weather-based travel destination recommendation service that analyzes weather data from around the world to recommend optimal travel destinations. Find regions that match your desired temperature and weather conditions for specific dates, or check past weather patterns for planned destinations to make more informed travel plans.",
-			"image": "/images/then-weather-hero.jpg",
+			"image": "/images/then-weather-hero.png",
 			"platforms": {
 				"web": {
 					"url": "https://thenweather.com",
@@ -190,7 +189,7 @@
 		{
 			"id": "tentdb-2026",
 			"name": "Tent DB",
-			"image": "https://picsum.photos/seed/tentdb-2026/1200/800",
+			"image": "/images/tentdb-icon.svg",
 			"platforms": {
 				"web": {
 					"url": "https://tentdb.kr",
@@ -226,7 +225,7 @@
 			"image": "https://picsum.photos/seed/jigeumgogo-2026/1200/800",
 			"platforms": {
 				"ios": {
-					"url": "https://apps.apple.com/app/id6738627897",
+					"url": "https://apps.apple.com/kr/app/%EC%A7%80%EA%B8%88%EA%B3%A0%EA%B3%A0-%EC%A6%89%ED%9D%A5-%EB%9E%9C%EB%8D%A4-%EC%97%AC%ED%96%89/id6738627897",
 					"status": "launched"
 				}
 			},
@@ -254,8 +253,8 @@
 		},
 		{
 			"id": "parking-classifier-2026",
-			"name": "주차차량 분류",
-			"image": "https://picsum.photos/seed/parking-classifier-2026/1200/800",
+			"name": "Parking Vehicle Classification",
+			"image": "/images/parking-classifier-hero.png",
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/id6757954080",
@@ -287,7 +286,6 @@
 		{
 			"id": "writone-2026",
 			"name": "Writone",
-			"image": "https://picsum.photos/seed/writone-2026/1200/800",
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/id6758207392",
@@ -318,8 +316,7 @@
 		},
 		{
 			"id": "siseon-2026",
-			"name": "시선",
-			"image": "https://picsum.photos/seed/siseon-2026/1200/800",
+			"name": "Poetry Lens",
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/siseon/id9000000104",
@@ -351,7 +348,6 @@
 		{
 			"id": "bimspark-2026",
 			"name": "BIMSpark",
-			"image": "https://picsum.photos/seed/bimspark-2026/1200/800",
 			"platforms": {
 				"web": {
 					"url": "https://bimspark.app",
@@ -382,8 +378,7 @@
 		},
 		{
 			"id": "jobrisk-ai-2026",
-			"name": "AI 직업위험도",
-			"image": "https://picsum.photos/seed/jobrisk-ai-2026/1200/800",
+			"name": "AI Job Risk Assessment",
 			"platforms": {
 				"web": {
 					"url": "https://jobrisk-ai.app",
@@ -415,8 +410,7 @@
 		},
 		{
 			"id": "mypc-platform-2026",
-			"name": "MyPC",
-			"image": "https://picsum.photos/seed/mypc-platform-2026/1200/800",
+			"name": "myPC Platform",
 			"platforms": {
 				"web": {
 					"url": "https://mypcplatform.app",

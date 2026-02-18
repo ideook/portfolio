@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { PLATFORM_ICONS, PLATFORM_LABELS } from '../utils/platformIcons'
-import { getStatusLabel, getStatusColor, TREND_ICONS } from '../utils/statusUtils'
 import projectsData from '../data/projects.json'
 import styles from '../styles/components/DetailPanel.module.css'
 
@@ -26,9 +25,7 @@ function DetailPanel({ project, isVisible, onClose }) {
   const { social } = projectsData
   const isProfile = project?._isProfile === true
   const isMobile = viewportWidth <= MOBILE_BREAKPOINT
-
-  const statusLabel = project && !isProfile ? getStatusLabel(project) : ''
-  const statusColor = project && !isProfile ? getStatusColor(project) : {}
+  const isSvgImage = Boolean(project?.image) && /\.svg($|\?)/i.test(project.image)
 
   function handleKeyDown(e) {
     if (e.key === 'Escape') onClose()
@@ -188,59 +185,31 @@ function DetailPanel({ project, isVisible, onClose }) {
         {/* ── Project panel ─────────────────────────────── */}
         {project && !isProfile && (
           <>
-            {project.image && (
-              <div className={styles.thumbnail}>
-                <img src={project.image} alt={project.name} className={styles.thumbnailImg} />
-              </div>
-            )}
-
             <h2 className={styles.projectName}>{project.name}</h2>
             <p className={styles.description}>{project.description}</p>
 
-            <div className={styles.statusRow}>
-              <span
-                className={styles.statusBadge}
-                style={{ background: statusColor.bg, color: statusColor.text, border: `1px solid ${statusColor.border}` }}
-              >
-                {statusLabel}
-              </span>
-              <span className={styles.management}>
-                {project.management === 'active' ? '✅' : project.management === 'maintenance' ? '⚠️' : '❌'}{' '}
-                {project.management}
-              </span>
-            </div>
-
             {project.platforms && (
               <div className={styles.platformLinks}>
-                {Object.entries(project.platforms).map(([key, value]) => (
-                  <a key={key} href={value.url} target="_blank" rel="noopener noreferrer" className={styles.platformLink}>
-                    <span className={styles.platformIcon}>{PLATFORM_ICONS[key]?.icon}</span>
-                    {PLATFORM_LABELS[key]}
-                  </a>
-                ))}
+                {Object.entries(project.platforms).map(([key, value]) => {
+                  const platformLabel = PLATFORM_LABELS[key] ?? key
+
+                  return (
+                    <a
+                      key={key}
+                      href={value.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.platformLink}
+                      aria-label={`Open ${project.name} on ${platformLabel}`}
+                    >
+                      <span className={styles.platformIcon}>{PLATFORM_ICONS[key]?.icon}</span>
+                      <span className={styles.platformLabel}>{platformLabel}</span>
+                      <span className={styles.platformArrow} aria-hidden="true">↗</span>
+                    </a>
+                  )
+                })}
               </div>
             )}
-
-            <div className={styles.metrics}>
-              {project.users && (
-                <div className={styles.metric}>
-                  <span className={styles.metricLabel}>Users</span>
-                  <span className={styles.metricValue}>
-                    {project.users.count?.toLocaleString()}{' '}
-                    <span className={styles.trend}>{TREND_ICONS[project.users.trend]}</span>
-                  </span>
-                </div>
-              )}
-              {project.revenue && (
-                <div className={styles.metric}>
-                  <span className={styles.metricLabel}>MRR</span>
-                  <span className={styles.metricValue}>
-                    {project.revenue.monthly}{' '}
-                    <span className={styles.trend}>{TREND_ICONS[project.revenue.trend]}</span>
-                  </span>
-                </div>
-              )}
-            </div>
 
             {project.tags && project.tags.length > 0 && (
               <div className={styles.tags}>
@@ -262,6 +231,11 @@ function DetailPanel({ project, isVisible, onClose }) {
         )}
 
         <div className={styles.spacer} />
+        {project && !isProfile && project.image && (
+          <figure className={[styles.detailImageSection, isSvgImage ? styles.detailImageSectionPadded : ''].filter(Boolean).join(' ')}>
+            <img src={project.image} alt={project.name} className={styles.detailImage} />
+          </figure>
+        )}
 
         {/* Footer */}
         <footer className={styles.footer}>
