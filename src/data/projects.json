@@ -24,6 +24,7 @@
 		{
 			"id": "thinka-2025",
 			"name": "Thinka - AI Idea Recorder",
+			"hidden": true,
 			"description": "A minimalist, intelligent app designed to help you capture and organize your thoughts effortlessly. Features voice recording, AI transcription and summarization, project-based organization, and professional document generation. Transform ideas into insights with seamless voice and text input support, simple gesture controls, and unlimited projects with Thinka Pro subscription.",
 			"platforms": {
 				"ios": {
@@ -221,6 +222,7 @@
 		{
 			"id": "jigeumgogo-2026",
 			"name": "지금고고",
+			"hidden": true,
 			"image": "https://picsum.photos/seed/jigeumgogo-2026/1200/800",
 			"platforms": {
 				"ios": {
