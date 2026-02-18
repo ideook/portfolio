@@ -52,12 +52,3 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* Allow scroll on mobile */
-@media (max-width: 767px) {
-  html,
-  body,
-  #root {
-    overflow: auto;
-  }
-}

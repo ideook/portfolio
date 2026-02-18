@@ -1,23 +1,326 @@
-import { useState, useEffect, useRef } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 import GalleryCard from './GalleryCard'
 import DetailPanel from './DetailPanel'
 import projectsData from '../data/projects.json'
 import styles from '../styles/components/GalleryView.module.css'
 
-const GRID_AREAS = {
-  'thinka-2025':       'thinka',
-  'k-random-trip-2025':'ktrip',
-  'tidily-2025':       'tidily',
-  'then-weather-2025': 'weather',
-  'mydb-2025':         'mydb',
-  'focusflow-2025':    'focus',
-  'mealplan-2025':     'meal',
-  'spendsmart-2025':   'spend',
-  'localfinder-2025':  'local',
-  'sketchnote-2025':   'sketch',
+const PROFILE_ITEM = { _isProfile: true }
+const MIN_TILE_COLS = 2
+const MIN_TILE_ROWS = 2
+
+function hashString(value) {
+  let hash = 2166136261
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
 }
 
-const PROFILE_ITEM = { _isProfile: true }
+function createRng(seed) {
+  let state = seed >>> 0
+  return () => {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0
+    return state / 4294967296
+  }
+}
+
+function getGridConfig(projectCount) {
+  if (projectCount <= 5) return { cols: 12, rows: 8, profileW: 4, profileH: 4 }
+  if (projectCount <= 8) return { cols: 12, rows: 9, profileW: 4, profileH: 3 }
+  if (projectCount <= 12) return { cols: 12, rows: 10, profileW: 3, profileH: 3 }
+  return { cols: 12, rows: 10, profileW: 3, profileH: 2 }
+}
+
+function getRegionCapacity(region) {
+  if (region.w < MIN_TILE_COLS || region.h < MIN_TILE_ROWS) return 0
+  return Math.floor(region.w / MIN_TILE_COLS) * Math.floor(region.h / MIN_TILE_ROWS)
+}
+
+function getCutCandidates(length, minSide) {
+  const candidates = []
+  for (let cut = minSide; cut <= length - minSide; cut += 1) {
+    candidates.push(cut)
+  }
+  return candidates
+}
+
+function getBalancedCut(candidates, rng) {
+  if (candidates.length === 0) return null
+  if (candidates.length === 1) return candidates[0]
+
+  const center = (candidates[0] + candidates[candidates.length - 1]) / 2
+  const sorted = [...candidates].sort((a, b) => Math.abs(a - center) - Math.abs(b - center))
+  const bucket = sorted.slice(0, Math.min(3, sorted.length))
+  return bucket[Math.floor(rng() * bucket.length)]
+}
+
+function splitRect(rect, rng) {
+  const verticalCuts = getCutCandidates(rect.w, MIN_TILE_COLS)
+  const horizontalCuts = getCutCandidates(rect.h, MIN_TILE_ROWS)
+
+  const canSplitVertically = verticalCuts.length > 0
+  const canSplitHorizontally = horizontalCuts.length > 0
+  if (!canSplitVertically && !canSplitHorizontally) return null
+
+  let orientation
+  if (canSplitVertically && canSplitHorizontally) {
+    if (Math.abs(rect.w - rect.h) >= 2) {
+      orientation = rect.w > rect.h ? 'v' : 'h'
+    } else {
+      orientation = rng() > 0.5 ? 'v' : 'h'
+    }
+  } else {
+    orientation = canSplitVertically ? 'v' : 'h'
+  }
+
+  if (orientation === 'v' && canSplitVertically) {
+    const cut = getBalancedCut(verticalCuts, rng)
+    if (cut == null) return null
+
+    return [
+      { ...rect, w: cut },
+      { ...rect, x: rect.x + cut, w: rect.w - cut },
+    ]
+  }
+
+  const cut = getBalancedCut(horizontalCuts, rng)
+  if (cut == null) return null
+
+  return [
+    { ...rect, h: cut },
+    { ...rect, y: rect.y + cut, h: rect.h - cut },
+  ]
+}
+
+function splitRegion(region, targetCount, rng) {
+  if (targetCount <= 0 || region.w <= 0 || region.h <= 0) return []
+
+  const maxCount = Math.min(region.w * region.h, getRegionCapacity(region))
+  const desired = Math.max(1, Math.min(targetCount, maxCount))
+  const rects = [{ ...region }]
+
+  while (rects.length < desired) {
+    const splittable = rects
+      .map((rect, idx) => ({ rect, idx }))
+      .filter(({ rect }) => rect.w > 1 || rect.h > 1)
+      .sort((a, b) => (b.rect.w * b.rect.h) - (a.rect.w * a.rect.h))
+
+    if (splittable.length === 0) break
+
+    const picked = splittable[0]
+    const split = splitRect(picked.rect, rng)
+    if (!split) break
+
+    rects.splice(picked.idx, 1, split[0], split[1])
+  }
+
+  return rects
+}
+
+function distributeProjects(totalProjects, regions) {
+  const counts = Array(regions.length).fill(0)
+  if (totalProjects <= 0) return counts
+
+  const active = regions
+    .map((region, idx) => ({ region, idx }))
+    .filter(({ region }) => getRegionCapacity(region) > 0)
+
+  if (active.length === 0) return counts
+
+  let remaining = totalProjects
+
+  if (totalProjects >= active.length) {
+    active.forEach(({ idx }) => { counts[idx] = 1 })
+    remaining -= active.length
+  } else {
+    for (let i = 0; i < totalProjects; i += 1) counts[active[i].idx] = 1
+    return counts
+  }
+
+  if (remaining <= 0) return counts
+
+  const totalArea = active.reduce((sum, { region }) => sum + (region.w * region.h), 0)
+  const weighted = active.map(({ region, idx }) => {
+    const ideal = remaining * (region.w * region.h / totalArea)
+    const extra = Math.floor(ideal)
+    counts[idx] += extra
+    return { idx, fraction: ideal - extra }
+  })
+
+  const used = weighted.reduce((sum, { idx }) => sum + (counts[idx] - 1), 0)
+  let left = remaining - used
+  weighted.sort((a, b) => b.fraction - a.fraction)
+
+  for (let i = 0; i < weighted.length && left > 0; i += 1) {
+    counts[weighted[i].idx] += 1
+    left -= 1
+  }
+
+  return counts
+}
+
+function clampCountsByArea(counts, regions) {
+  const next = [...counts]
+  let overflow = 0
+
+  for (let i = 0; i < regions.length; i += 1) {
+    const max = Math.min(regions[i].w * regions[i].h, getRegionCapacity(regions[i]))
+    if (next[i] > max) {
+      overflow += next[i] - max
+      next[i] = max
+    }
+  }
+
+  while (overflow > 0) {
+    let target = -1
+    let room = 0
+    for (let i = 0; i < regions.length; i += 1) {
+      const max = Math.min(regions[i].w * regions[i].h, getRegionCapacity(regions[i]))
+      const remain = max - next[i]
+      if (remain > room) {
+        room = remain
+        target = i
+      }
+    }
+    if (target === -1 || room <= 0) break
+    next[target] += 1
+    overflow -= 1
+  }
+
+  return next
+}
+
+function sortRectsByRegion(rects, type, profileRect) {
+  const centerX = profileRect.x + (profileRect.w / 2)
+  const centerY = profileRect.y + (profileRect.h / 2)
+
+  if (type === 'top') {
+    return [...rects].sort((a, b) => {
+      const da = Math.abs((a.x + a.w / 2) - centerX)
+      const db = Math.abs((b.x + b.w / 2) - centerX)
+      return da - db
+    })
+  }
+
+  if (type === 'bottom') {
+    return [...rects].sort((a, b) => {
+      const da = Math.abs((a.x + a.w / 2) - centerX)
+      const db = Math.abs((b.x + b.w / 2) - centerX)
+      return da - db
+    })
+  }
+
+  if (type === 'left') {
+    return [...rects].sort((a, b) => {
+      const da = Math.abs((a.y + a.h / 2) - centerY)
+      const db = Math.abs((b.y + b.h / 2) - centerY)
+      return da - db
+    })
+  }
+
+  return [...rects].sort((a, b) => {
+    const da = Math.abs((a.y + a.h / 2) - centerY)
+    const db = Math.abs((b.y + b.h / 2) - centerY)
+    return da - db
+  })
+}
+
+function createCardMotion(projectId, index, rect, profileRect, cols, rows) {
+  const seed = hashString(`${projectId}:${index}`)
+  let shiftX = ((seed >>> 8) % 5) - 2
+  let shiftY = ((seed >>> 13) % 7) - 3
+  let tilt = (((seed >>> 18) % 9) - 4) / 12
+
+  if (rect.x === 0) shiftX = Math.min(shiftX, 0)
+  if (rect.x + rect.w === cols) shiftX = Math.max(shiftX, 0)
+  if (rect.y === 0) shiftY = Math.min(shiftY, 0)
+  if (rect.y + rect.h === rows) shiftY = Math.max(shiftY, 0)
+
+  if (rect.x + rect.w === profileRect.x) shiftX = Math.max(shiftX, 0)
+  if (rect.x === profileRect.x + profileRect.w) shiftX = Math.min(shiftX, 0)
+  if (rect.y + rect.h === profileRect.y) shiftY = Math.max(shiftY, 0)
+  if (rect.y === profileRect.y + profileRect.h) shiftY = Math.min(shiftY, 0)
+
+  if (rect.w <= MIN_TILE_COLS || rect.h <= MIN_TILE_ROWS) {
+    shiftX = Math.round(shiftX * 0.4)
+    shiftY = Math.round(shiftY * 0.4)
+    tilt *= 0.4
+  }
+
+  if (rect.w * rect.h >= 10) tilt *= 0.55
+
+  return {
+    tilt,
+    shiftX: `${shiftX}px`,
+    shiftY: `${shiftY}px`,
+  }
+}
+
+function buildLayout(projects) {
+  const config = getGridConfig(projects.length)
+  const { cols, rows, profileW, profileH } = config
+  const profileRect = {
+    x: Math.floor((cols - profileW) / 2),
+    y: Math.floor((rows - profileH) / 2),
+    w: profileW,
+    h: profileH,
+  }
+
+  const regions = [
+    { type: 'top', x: 0, y: 0, w: cols, h: profileRect.y },
+    { type: 'left', x: 0, y: profileRect.y, w: profileRect.x, h: profileRect.h },
+    {
+      type: 'right',
+      x: profileRect.x + profileRect.w,
+      y: profileRect.y,
+      w: cols - (profileRect.x + profileRect.w),
+      h: profileRect.h,
+    },
+    {
+      type: 'bottom',
+      x: 0,
+      y: profileRect.y + profileRect.h,
+      w: cols,
+      h: rows - (profileRect.y + profileRect.h),
+    },
+  ]
+
+  const baseCounts = distributeProjects(projects.length, regions)
+  const counts = clampCountsByArea(baseCounts, regions)
+  const rng = createRng(hashString(projects.map((project) => project.id).join('|')))
+
+  const groupedRects = regions.map((region, idx) => ({
+    type: region.type,
+    rects: splitRegion(region, counts[idx], rng),
+  }))
+
+  const orderedRects = [
+    ...sortRectsByRegion(groupedRects.find((g) => g.type === 'top')?.rects ?? [], 'top', profileRect),
+    ...sortRectsByRegion(groupedRects.find((g) => g.type === 'right')?.rects ?? [], 'right', profileRect),
+    ...sortRectsByRegion(groupedRects.find((g) => g.type === 'bottom')?.rects ?? [], 'bottom', profileRect),
+    ...sortRectsByRegion(groupedRects.find((g) => g.type === 'left')?.rects ?? [], 'left', profileRect),
+  ]
+
+  const placements = {}
+  projects.forEach((project, idx) => {
+    const rect = orderedRects[idx]
+    if (!rect) return
+
+    const motion = createCardMotion(project.id, idx, rect, profileRect, cols, rows)
+    placements[project.id] = {
+      ...rect,
+      ...motion,
+    }
+  })
+
+  return {
+    cols,
+    rows,
+    profileRect,
+    placements,
+  }
+}
 
 function GalleryView() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -26,6 +329,7 @@ function GalleryView() {
   const isProfileSelected = selectedProject?._isProfile === true
 
   const { projects, social } = projectsData
+  const layout = useMemo(() => buildLayout(projects), [projects])
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -63,12 +367,24 @@ function GalleryView() {
   return (
     <div className={styles.viewportContainer}>
       <div className={[styles.galleryContainer, isPanelOpen ? styles.panelOpen : ''].filter(Boolean).join(' ')}>
-        <div className={styles.galleryGrid}>
+        <div
+          className={styles.galleryGrid}
+          style={{
+            '--grid-cols': layout.cols,
+            '--grid-rows': layout.rows,
+          }}
+        >
 
           {/* Profile card */}
           <article
             className={[styles.profileCard, isProfileSelected ? styles.profileSelected : ''].filter(Boolean).join(' ')}
-            style={{ gridArea: 'profile' }}
+            style={{
+              gridColumn: `${layout.profileRect.x + 1} / span ${layout.profileRect.w}`,
+              gridRow: `${layout.profileRect.y + 1} / span ${layout.profileRect.h}`,
+              '--card-tilt': '0deg',
+              '--card-shift-x': '0px',
+              '--card-shift-y': '0px',
+            }}
             onClick={() => handleCardClick(PROFILE_ITEM)}
             role="button" tabIndex={0}
             onKeyDown={(e) => e.key === 'Enter' && handleCardClick(PROFILE_ITEM)}
@@ -103,15 +419,14 @@ function GalleryView() {
           </article>
 
           {/* Project cards */}
-          {projects.map((project, index) => {
-            const gridArea = GRID_AREAS[project.id]
-            if (!gridArea) return null
+          {projects.map((project) => {
+            const placement = layout.placements[project.id]
+            if (!placement) return null
             return (
               <GalleryCard
                 key={project.id}
                 project={project}
-                gridArea={gridArea}
-                index={index}
+                placement={placement}
                 isSelected={selectedProject?.id === project.id}
                 isDimmed={isPanelOpen && selectedProject?.id !== project.id}
                 onClick={() => handleCardClick(project)}

@@ -1,23 +1,42 @@
 import { useState } from 'react'
-import { PLATFORM_LABELS } from '../utils/platformIcons'
 import styles from '../styles/components/GalleryCard.module.css'
 
-function GalleryCard({ project, gridArea, index, isSelected, isDimmed, onClick }) {
+function getCardSizeTier(placement) {
+  const area = placement.w * placement.h
+  const minSide = Math.min(placement.w, placement.h)
+
+  if (minSide <= 2 || area <= 8) return 'small'
+  if (area <= 14) return 'medium'
+  return 'large'
+}
+
+function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
   const [imageError, setImageError] = useState(false)
 
   const hasImage = Boolean(project.image) && !imageError
   const displayTags = project.tags ? project.tags.slice(0, 3) : []
+  const sizeTier = getCardSizeTier(placement)
+
   return (
     <article
       className={[
         styles.card,
+        sizeTier === 'small' ? styles.sizeSmall : '',
+        sizeTier === 'medium' ? styles.sizeMedium : '',
+        sizeTier === 'large' ? styles.sizeLarge : '',
         isSelected ? styles.selected : '',
         isDimmed ? styles.dimmed : '',
         !hasImage ? styles.noImage : '',
       ]
         .filter(Boolean)
         .join(' ')}
-      style={{ gridArea }}
+      style={{
+        gridColumn: `${placement.x + 1} / span ${placement.w}`,
+        gridRow: `${placement.y + 1} / span ${placement.h}`,
+        '--card-tilt': `${placement.tilt}deg`,
+        '--card-shift-x': placement.shiftX,
+        '--card-shift-y': placement.shiftY,
+      }}
       onClick={onClick}
       role="button"
       tabIndex={0}
