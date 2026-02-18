@@ -1,0 +1,181 @@
+.viewportContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+/* Gallery area */
+.galleryContainer {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  overflow: hidden;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.galleryContainer.panelOpen {
+  width: 66.67%;
+}
+
+/* Fixed grid: 4col × 4row, fills viewport exactly, no scroll */
+.galleryGrid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "profile thinka  thinka  ktrip"
+    "tidily  thinka  thinka  ktrip"
+    "weather mydb    focus   meal"
+    "spend   mydb    local   sketch";
+  gap: 20px;
+}
+
+/* Profile card */
+.profileCard {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+.profileCard:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.11), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.profileCard:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.profileSelected {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 2px var(--color-accent), 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Top: social links */
+.profileTop {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  gap: 6px;
+}
+
+.profileSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid #e4e4e4;
+  color: #bbb;
+  background: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.profileSocialLink:hover {
+  color: #555;
+  border-color: #bbb;
+  text-decoration: none;
+}
+
+/* Bottom: name + role + arrow */
+.profileBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profileRole {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #bbb;
+  letter-spacing: 0.01em;
+}
+
+.profileName {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(16px, 2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+  line-height: 1.1;
+}
+
+.profileArrow {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.profileCard:hover .profileArrow {
+  color: #888;
+  transform: translate(2px, -2px);
+}
+
+/* Tablet: keep 4-col layout, reduce gap/padding */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .galleryContainer {
+    padding: 20px;
+  }
+
+  .galleryGrid {
+    gap: 14px;
+  }
+}
+
+/* Mobile: 2col × 6row, allow vertical scroll only here */
+@media (max-width: 767px) {
+  html, body, #root {
+    overflow: auto;
+  }
+
+  .viewportContainer {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .galleryContainer {
+    width: 100% !important;
+    height: auto;
+    overflow: visible;
+    padding: 12px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-template-areas: none;
+    grid-auto-rows: minmax(140px, 22vw);
+    gap: 10px;
+    height: auto;
+  }
+}

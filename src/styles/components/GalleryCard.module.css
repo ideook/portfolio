@@ -1,0 +1,149 @@
+.card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+  outline: none;
+  user-select: none;
+}
+
+.card.noImage {
+  border-color: #e4e4e4;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card.noImage:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.11), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.card.dimmed {
+  opacity: 0.45;
+  transform: scale(0.97);
+}
+
+.card.selected {
+  opacity: 1;
+  transform: scale(1);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent), 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+/* Background */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.bgWhite {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+}
+
+/* Gradient overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.0) 30%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Tags — bottom right (both card types) ─────────── */
+.tagsBottomRight {
+  position: absolute;
+  bottom: 13px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  z-index: 1;
+}
+
+.tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.tagDark {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #bbb;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+/* ── Text: has image — bottom left ─────────────────── */
+.textContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 80px;
+  padding: 14px 16px;
+  z-index: 1;
+}
+
+.projectName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Text: no image — centered ─────────────────────── */
+.textContentCenter {
+  position: absolute;
+  inset: 0;
+  bottom: 32px; /* leave room for tags */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
+  z-index: 1;
+}
+
+.projectNameCenter {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.8vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-align: center;
+  color: #111111;
+}

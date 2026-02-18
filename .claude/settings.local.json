@@ -16,7 +16,11 @@
       "WebFetch(domain:www.revenuecat.com)",
       "WebFetch(domain:yogeshpaliyal.com)",
       "Bash(curl:*)",
-      "WebFetch(domain:x.com)"
+      "WebFetch(domain:x.com)",
+      "Bash(npm run build:*)",
+      "mcp__ide__getDiagnostics",
+      "WebFetch(domain:lenardfloeren.com)",
+      "Bash(node -e:*)"
     ],
     "deny": []
   }

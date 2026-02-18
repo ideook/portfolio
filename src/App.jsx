@@ -1,24 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import ProjectList from './components/ProjectList'
-import ProjectDetail from './components/ProjectDetail'
+import GalleryView from './components/GalleryView'
 import About from './components/About'
 import PrivacyPolicy from './components/PrivacyPolicy'
-import Footer from './components/Footer'
+import PageWrapper from './components/PageWrapper'
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Header />
-        <Routes>
-          <Route path="/" element={<ProjectList />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<GalleryView />} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/privacy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />
+      </Routes>
     </Router>
   )
 }

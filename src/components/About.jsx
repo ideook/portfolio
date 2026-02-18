@@ -12,7 +12,7 @@ function About() {
         <p>After 15 years in architecture, I switched to coding for the immediacy of building solutions. While I continue working in the architecture field, I'm increasingly drawn to personal projects where I can experiment and build without constraints.</p>
         <p>I believe in rapid prototyping and learning through making—some of my best work happens when I just start building.</p>
       </section>
-      
+
       <section className={styles.section}>
         <h3>Technologies</h3>
         <ul className={styles.techList}>
@@ -23,7 +23,7 @@ function About() {
           <li>PostgreSQL / Supabase</li>
         </ul>
       </section>
-      
+
       <section className={styles.section}>
         <h3>Contact</h3>
         <p>Feel free to reach out for collaborations or just a friendly chat.</p>
