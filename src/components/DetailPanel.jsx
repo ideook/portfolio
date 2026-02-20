@@ -8,6 +8,13 @@ const SWIPE_CLOSE_THRESHOLD = 110
 const SWIPE_CLOSE_VELOCITY = 0.65
 const MAX_DRAG_OFFSET = 260
 
+function getLogoThemeClass(project, stylesObj) {
+  if (!project || project.imageStyle !== 'logo-hero') return ''
+  if (project.imageTheme === 'tentdb-web') return stylesObj.logoHeroThemeTentdbWeb
+  if (project.imageTheme === 'tentdb-luxe') return stylesObj.logoHeroThemeTentdb
+  return ''
+}
+
 function DetailPanel({ project, isVisible, onClose }) {
   const panelContentRef = useRef(null)
   const dragOffsetRef = useRef(0)
@@ -26,6 +33,8 @@ function DetailPanel({ project, isVisible, onClose }) {
   const isProfile = project?._isProfile === true
   const isMobile = viewportWidth <= MOBILE_BREAKPOINT
   const isSvgImage = Boolean(project?.image) && /\.svg($|\?)/i.test(project.image)
+  const isLogoHero = project?.imageStyle === 'logo-hero'
+  const isMessageHero = project?.imageStyle === 'web-message-hero'
 
   function handleKeyDown(e) {
     if (e.key === 'Escape') onClose()
@@ -231,9 +240,33 @@ function DetailPanel({ project, isVisible, onClose }) {
         )}
 
         <div className={styles.spacer} />
-        {project && !isProfile && project.image && (
-          <figure className={[styles.detailImageSection, isSvgImage ? styles.detailImageSectionPadded : ''].filter(Boolean).join(' ')}>
-            <img src={project.image} alt={project.name} className={styles.detailImage} />
+        {project && !isProfile && (project.image || isMessageHero) && (
+          <figure
+            className={[
+              styles.detailImageSection,
+              isSvgImage ? styles.detailImageSectionPadded : '',
+              isLogoHero ? styles.logoHeroImageSection : '',
+              isMessageHero ? styles.messageHeroDetailSection : '',
+              getLogoThemeClass(project, styles),
+            ].filter(Boolean).join(' ')}
+          >
+            {isMessageHero ? (
+              <div className={styles.messageHeroDetailInner}>
+                <p className={styles.messageHeroDetailBrand}>{project.name}</p>
+                <h3 className={styles.messageHeroDetailTitle}>{project.heroHeadline ?? project.name}</h3>
+                {project.heroSubline && (
+                  <p className={styles.messageHeroDetailSubline}>{project.heroSubline}</p>
+                )}
+              </div>
+            ) : isLogoHero ? (
+              <div className={styles.logoHeroImageInner}>
+                <div className={styles.logoHeroImageCard}>
+                  <img src={project.image} alt={project.name} className={styles.logoHeroImageIcon} />
+                </div>
+              </div>
+            ) : (
+              <img src={project.image} alt={project.name} className={styles.detailImage} />
+            )}
           </figure>
         )}
 

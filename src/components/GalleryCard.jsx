@@ -12,11 +12,21 @@ function getCardSizeTier(placement) {
   return 'large'
 }
 
+function getLogoThemeClass(project, stylesObj) {
+  if (!project || project.imageStyle !== 'logo-hero') return ''
+  if (project.imageTheme === 'tentdb-web') return stylesObj.logoHeroThemeTentdbWeb
+  if (project.imageTheme === 'tentdb-luxe') return stylesObj.logoHeroThemeTentdb
+  return ''
+}
+
 function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
   const [imageError, setImageError] = useState(false)
 
-  const hasImage = Boolean(project.image) && !imageError
-  const isSvgImage = Boolean(project.image) && /\.svg($|\?)/i.test(project.image)
+  const isMessageHero = project.imageStyle === 'web-message-hero'
+  const isLogoHero = project.imageStyle === 'logo-hero' && Boolean(project.image) && !imageError
+  const hasStandardImage = Boolean(project.image) && !imageError && !isLogoHero
+  const hasImage = isMessageHero || isLogoHero || hasStandardImage
+  const isSvgImage = hasStandardImage && /\.svg($|\?)/i.test(project.image)
   const displayTags = project.tags ? project.tags.slice(0, 3) : []
   const sizeTier = getCardSizeTier(placement)
 
@@ -27,6 +37,9 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
         sizeTier === 'small' ? styles.sizeSmall : '',
         sizeTier === 'medium' ? styles.sizeMedium : '',
         sizeTier === 'large' ? styles.sizeLarge : '',
+        isMessageHero ? styles.messageHeroMode : '',
+        isLogoHero ? styles.logoHeroMode : '',
+        getLogoThemeClass(project, styles),
         isSelected ? styles.selected : '',
         isDimmed ? styles.dimmed : '',
         !hasImage ? styles.noImage : '',
@@ -46,7 +59,29 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
       onKeyDown={(e) => e.key === 'Enter' && onClick()}
       aria-label={`View ${project.name} details`}
     >
-      {hasImage ? (
+      {isMessageHero ? (
+        <div className={styles.messageHeroBg} aria-hidden="true">
+          <div className={styles.messageHeroGrid} />
+          <div className={styles.messageHeroInner}>
+            <p className={styles.messageHeroBrand}>{project.name}</p>
+            <h2 className={styles.messageHeroTitle}>{project.heroHeadline ?? project.name}</h2>
+            {project.heroSubline && <p className={styles.messageHeroSubline}>{project.heroSubline}</p>}
+          </div>
+        </div>
+      ) : isLogoHero ? (
+        <div className={styles.logoHeroBg} aria-hidden="true">
+          <div className={styles.logoHeroGlow} />
+          <div className={styles.logoHeroFrame}>
+            <img
+              src={project.image}
+              alt=""
+              className={styles.logoHeroIcon}
+              onError={() => setImageError(true)}
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      ) : hasStandardImage ? (
         <img
           src={project.image}
           alt=""
@@ -60,11 +95,21 @@ function GalleryCard({ project, placement, isSelected, isDimmed, onClick }) {
 
       {hasImage && <div className={styles.overlay} />}
 
-      {hasImage ? (
+      {hasImage && !isMessageHero ? (
         <>
           <div className={styles.textContent}>
             <h2 className={styles.projectName}>{project.name}</h2>
           </div>
+          {displayTags.length > 0 && (
+            <div className={styles.tagsBottomRight}>
+              {displayTags.map((tag) => (
+                <span key={tag} className={styles.tag}>#{tag}</span>
+              ))}
+            </div>
+          )}
+        </>
+      ) : hasImage && isMessageHero ? (
+        <>
           {displayTags.length > 0 && (
             <div className={styles.tagsBottomRight}>
               {displayTags.map((tag) => (

@@ -56,6 +56,8 @@
 		{
 			"id": "k-random-trip-2025",
 			"name": "K-Random Trip",
+			"layoutSize": "medium",
+			"layoutPriority": 78,
 			"description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
 			"image": "/images/k-random-trip-hero.png",
 			"platforms": {
@@ -89,6 +91,8 @@
 		{
 			"id": "tidily-2025",
 			"name": "Tidily",
+			"layoutSize": "large",
+			"layoutPriority": 90,
 			"description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
 			"platforms": {
 				"ios": {
@@ -156,6 +160,8 @@
 		{
 			"id": "then-weather-2025",
 			"name": "Then Weather",
+			"layoutSize": "large",
+			"layoutPriority": 96,
 			"description": "Weather-based travel destination recommendation service that analyzes weather data from around the world to recommend optimal travel destinations. Find regions that match your desired temperature and weather conditions for specific dates, or check past weather patterns for planned destinations to make more informed travel plans.",
 			"image": "/images/then-weather-hero.png",
 			"platforms": {
@@ -189,7 +195,9 @@
 		{
 			"id": "tentdb-2026",
 			"name": "Tent DB",
-			"image": "/images/tentdb-icon.svg",
+			"layoutSize": "medium",
+			"layoutPriority": 83,
+			"image": "/images/tentdb-collage.jpg",
 			"platforms": {
 				"web": {
 					"url": "https://tentdb.kr",
@@ -254,6 +262,8 @@
 		{
 			"id": "parking-classifier-2026",
 			"name": "Parking Vehicle Classification",
+			"layoutSize": "large",
+			"layoutPriority": 95,
 			"image": "/images/parking-classifier-hero.png",
 			"platforms": {
 				"ios": {
@@ -285,7 +295,11 @@
 		},
 		{
 			"id": "writone-2026",
-			"name": "Writone",
+			"name": "Writone - Reply Assistant",
+			"layoutSize": "xl",
+			"layoutPriority": 98,
+			"image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/48/f4/d848f4b9-7de8-3d14-57d0-bf534e142069/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+			"imageStyle": "logo-hero",
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/id6758207392",
@@ -317,6 +331,8 @@
 		{
 			"id": "siseon-2026",
 			"name": "Poetry Lens",
+			"layoutSize": "large",
+			"layoutPriority": 97,
 			"platforms": {
 				"ios": {
 					"url": "https://apps.apple.com/app/siseon/id9000000104",
@@ -348,6 +364,11 @@
 		{
 			"id": "bimspark-2026",
 			"name": "BIMSpark",
+			"layoutSize": "hero",
+			"layoutPriority": 99,
+			"imageStyle": "web-message-hero",
+			"heroHeadline": "Engineering needs fun.",
+			"heroSubline": "Design doesn't feel like design anymore. We are building a meta-layer to bring the joy of creation back to your daily workflow.",
 			"platforms": {
 				"web": {
 					"url": "https://bimspark.app",
@@ -379,6 +400,8 @@
 		{
 			"id": "jobrisk-ai-2026",
 			"name": "AI Job Risk Assessment",
+			"layoutSize": "small",
+			"layoutPriority": 72,
 			"platforms": {
 				"web": {
 					"url": "https://jobrisk-ai.app",
@@ -411,6 +434,8 @@
 		{
 			"id": "mypc-platform-2026",
 			"name": "myPC Platform",
+			"layoutSize": "small",
+			"layoutPriority": 71,
 			"platforms": {
 				"web": {
 					"url": "https://mypcplatform.app",

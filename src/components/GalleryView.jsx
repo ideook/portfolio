@@ -10,6 +10,17 @@ const MIN_TILE_ROWS = 2
 const DETAIL_PANEL_RATIO = 0.3333
 const MOBILE_BREAKPOINT = 767
 const MOBILE_SINGLE_COL_BREAKPOINT = 560
+const LAYOUT_SIZE_WEIGHT = {
+  hero: 5,
+  xl: 4,
+  large: 4,
+  lg: 4,
+  medium: 3,
+  md: 3,
+  small: 2,
+  sm: 2,
+  tiny: 1,
+}
 
 function hashString(value) {
   let hash = 2166136261
@@ -26,6 +37,75 @@ function createRng(seed) {
     state = (Math.imul(state, 1664525) + 1013904223) >>> 0
     return state / 4294967296
   }
+}
+
+function normalizeLayoutSize(value) {
+  if (typeof value !== 'string') return ''
+  return value.trim().toLowerCase()
+}
+
+function getLayoutWeight(project) {
+  const key = normalizeLayoutSize(project?.layoutSize)
+  return LAYOUT_SIZE_WEIGHT[key] ?? 0
+}
+
+function getLayoutPriority(project, index, total) {
+  const explicit = Number(project?.layoutPriority)
+  if (Number.isFinite(explicit)) return explicit
+  return total - index
+}
+
+function getProjectsByLayoutImportance(projects) {
+  const total = projects.length
+  return projects
+    .map((project, index) => ({
+      project,
+      index,
+      weight: getLayoutWeight(project),
+      priority: getLayoutPriority(project, index, total),
+    }))
+    .sort((a, b) => (
+      b.priority - a.priority
+      || b.weight - a.weight
+      || a.index - b.index
+    ))
+    .map((item) => item.project)
+}
+
+function sortRectsByArea(rects) {
+  return [...rects].sort((a, b) => {
+    const areaDiff = (b.w * b.h) - (a.w * a.h)
+    if (areaDiff !== 0) return areaDiff
+    if (a.y !== b.y) return a.y - b.y
+    return a.x - b.x
+  })
+}
+
+function getMobileHeightByLayoutSize(project, fallbackHeight, noImageHeight) {
+  const key = normalizeLayoutSize(project?.layoutSize)
+  const priority = Number(project?.layoutPriority)
+  const map = {
+    hero: 4,
+    xl: 3,
+    large: 3,
+    lg: 3,
+    medium: 2,
+    md: 2,
+    small: 1,
+    sm: 1,
+    tiny: 1,
+  }
+  const sizeHeight = key in map ? map[key] : 0
+  let priorityHeight = 0
+  if (Number.isFinite(priority)) {
+    if (priority >= 98) priorityHeight = 4
+    else if (priority >= 94) priorityHeight = 3
+    else if (priority >= 86) priorityHeight = 2
+    else priorityHeight = 1
+  }
+  const resolvedHeight = Math.max(sizeHeight, priorityHeight)
+  if (resolvedHeight > 0) return Math.max(noImageHeight, resolvedHeight)
+  return fallbackHeight
 }
 
 function getGridConfig(projectCount) {
@@ -305,9 +385,12 @@ function buildLayout(projects) {
     ...sortRectsByRegion(groupedRects.find((g) => g.type === 'left')?.rects ?? [], 'left', profileRect),
   ]
 
+  const rankedProjects = getProjectsByLayoutImportance(projects)
+  const rankedRects = sortRectsByArea(orderedRects)
+
   const placements = {}
-  projects.forEach((project, idx) => {
-    const rect = orderedRects[idx]
+  rankedProjects.forEach((project, idx) => {
+    const rect = rankedRects[idx]
     if (!rect) return
 
     const motion = createCardMotion(project.id, idx, rect, profileRect, cols, rows)
@@ -331,16 +414,19 @@ function buildMobileLayout(projects, viewportWidth) {
   const placements = {}
   const noImageHeight = 1
 
+  const rankedProjects = getProjectsByLayoutImportance(projects)
+
   if (cols === 1) {
     const imageHeightPattern = [3, 2, 3, 2, 4]
     let imagePatternIndex = 0
     let y = profileRect.h
 
-    projects.forEach((project, idx) => {
+    rankedProjects.forEach((project, idx) => {
       const hasImage = Boolean(project.image)
-      const h = hasImage
+      const defaultHeight = hasImage
         ? imageHeightPattern[imagePatternIndex % imageHeightPattern.length]
         : noImageHeight
+      const h = getMobileHeightByLayoutSize(project, defaultHeight, noImageHeight)
       placements[project.id] = {
         x: 0,
         y,
@@ -366,11 +452,12 @@ function buildMobileLayout(projects, viewportWidth) {
   const imageHeightPattern = [2, 3, 2, 3, 2, 4]
   let imagePatternIndex = 0
 
-  projects.forEach((project, idx) => {
+  rankedProjects.forEach((project, idx) => {
     const hasImage = Boolean(project.image)
-    const h = hasImage
+    const defaultHeight = hasImage
       ? imageHeightPattern[imagePatternIndex % imageHeightPattern.length]
       : noImageHeight
+    const h = getMobileHeightByLayoutSize(project, defaultHeight, noImageHeight)
     const shouldSpanBoth = hasImage && idx % 4 === 0 && columnHeights[0] === columnHeights[1]
 
     if (shouldSpanBoth) {

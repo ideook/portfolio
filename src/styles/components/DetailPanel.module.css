@@ -137,6 +137,169 @@
   object-fit: contain;
 }
 
+.logoHeroImageSection {
+  min-height: 220px;
+  background:
+    radial-gradient(70% 82% at 88% 10%, rgba(126, 113, 255, 0.24), rgba(126, 113, 255, 0) 72%),
+    radial-gradient(60% 76% at 10% 92%, rgba(34, 195, 203, 0.2), rgba(34, 195, 203, 0) 74%),
+    linear-gradient(145deg, #07090d 0%, #101422 56%, #171327 100%);
+  border: 1px solid rgba(150, 166, 222, 0.18);
+}
+
+.logoHeroImageInner {
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.logoHeroImageCard {
+  width: min(54%, 230px);
+  aspect-ratio: 1;
+  border-radius: 26px;
+  padding: 12px;
+  background: rgba(10, 12, 20, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.52),
+    0 0 28px rgba(126, 113, 255, 0.16),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+}
+
+.logoHeroImageIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22%;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+.logoHeroThemeTentdb.logoHeroImageSection {
+  background:
+    radial-gradient(70% 82% at 88% 10%, rgba(186, 152, 88, 0.2), rgba(186, 152, 88, 0) 72%),
+    radial-gradient(60% 76% at 10% 92%, rgba(88, 131, 102, 0.22), rgba(88, 131, 102, 0) 74%),
+    linear-gradient(146deg, #0d1110 0%, #141b16 56%, #1e2820 100%);
+  border: 1px solid rgba(180, 150, 98, 0.28);
+}
+
+.logoHeroThemeTentdb .logoHeroImageCard {
+  background: rgba(240, 232, 218, 0.92);
+  border: 1px solid rgba(201, 170, 112, 0.5);
+  box-shadow:
+    0 20px 42px rgba(2, 4, 3, 0.56),
+    0 0 26px rgba(186, 152, 88, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.logoHeroThemeTentdbWeb.logoHeroImageSection {
+  background:
+    radial-gradient(74% 84% at 84% 10%, rgba(113, 137, 173, 0.18), rgba(113, 137, 173, 0) 72%),
+    radial-gradient(58% 74% at 12% 92%, rgba(136, 167, 142, 0.16), rgba(136, 167, 142, 0) 74%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(70, 92, 116, 0.08) 0px,
+      rgba(70, 92, 116, 0.08) 1px,
+      rgba(255, 255, 255, 0) 1px,
+      rgba(255, 255, 255, 0) 36px
+    ),
+    linear-gradient(148deg, #f4f7f9 0%, #edf2f5 58%, #e8eeec 100%);
+  border: 1px solid rgba(93, 110, 127, 0.22);
+}
+
+.logoHeroThemeTentdbWeb .logoHeroImageCard {
+  width: min(78%, 460px);
+  aspect-ratio: auto;
+  padding: 16px 20px;
+  border: 1px solid rgba(93, 110, 127, 0.22);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 16px 34px rgba(36, 45, 58, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.logoHeroThemeTentdbWeb .logoHeroImageIcon {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 16px rgba(13, 20, 28, 0.12));
+}
+
+.messageHeroDetailSection {
+  min-height: 220px;
+  background:
+    radial-gradient(72% 82% at 86% 14%, rgba(213, 255, 106, 0.16), rgba(213, 255, 106, 0) 70%),
+    radial-gradient(58% 72% at 12% 92%, rgba(213, 255, 106, 0.12), rgba(213, 255, 106, 0) 74%),
+    linear-gradient(150deg, #060606 0%, #0d0f13 58%, #14171d 100%);
+  border: 1px solid rgba(213, 255, 106, 0.2);
+}
+
+.messageHeroDetailSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0) 1px,
+      rgba(255, 255, 255, 0) 36px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      rgba(255, 255, 255, 0) 1px,
+      rgba(255, 255, 255, 0) 36px
+    );
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.messageHeroDetailInner {
+  position: relative;
+  z-index: 1;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px;
+}
+
+.messageHeroDetailBrand {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(213, 255, 106, 0.88);
+  margin-bottom: 10px;
+}
+
+.messageHeroDetailTitle {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #f5f7fa;
+  max-width: 96%;
+}
+
+.messageHeroDetailSubline {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(245, 247, 250, 0.72);
+  max-width: min(96%, 640px);
+}
+
 /* Project name */
 .projectName {
   font-size: 20px;
@@ -369,7 +532,7 @@
 }
 
 .profilePanelName {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -536,6 +699,21 @@
 
   .detailImageSection {
     margin-top: 2px;
+  }
+
+  .logoHeroImageSection,
+  .logoHeroImageInner {
+    min-height: 190px;
+  }
+
+  .logoHeroImageInner {
+    padding: 18px;
+  }
+
+  .logoHeroImageCard {
+    width: min(56%, 190px);
+    border-radius: 22px;
+    padding: 10px;
   }
 
   .profileSection {
