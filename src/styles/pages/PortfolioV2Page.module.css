@@ -63,16 +63,19 @@
   padding: 10px 9px;
   cursor: pointer;
   color: #1d1d1d;
-  transition: color 160ms ease;
+  transition:
+    color 160ms ease,
+    font-weight 160ms ease;
 }
 
 .sidebarItem:hover {
-  color: #000;
+  color: #111;
+  font-weight: 680;
 }
 
 .sidebarItemActive {
   color: #111;
-  font-weight: 680;
+  font-weight: 760;
 }
 
 .sidebarThumb {
