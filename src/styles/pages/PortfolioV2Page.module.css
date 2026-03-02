@@ -8,8 +8,6 @@
 }
 
 .sidebar {
-  border-right: 1px solid #ececec;
-  background: #fff;
   padding: 18px 16px 24px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -62,20 +60,19 @@
   background: transparent;
   text-align: left;
   align-items: center;
-  border-radius: 10px;
   padding: 10px 9px;
   cursor: pointer;
   color: #1d1d1d;
-  transition: background-color 160ms ease, color 160ms ease;
+  transition: color 160ms ease;
 }
 
 .sidebarItem:hover {
-  background: #f5f7fa;
+  color: #000;
 }
 
 .sidebarItemActive {
-  background: #111;
-  color: #fff;
+  color: #111;
+  font-weight: 680;
 }
 
 .sidebarThumb {
@@ -124,7 +121,7 @@
 }
 
 .sidebarItemActive .sidebarItemMeta {
-  color: rgba(255, 255, 255, 0.9);
+  color: #5c6570;
 }
 
 .insightLink {
@@ -138,7 +135,7 @@
 }
 
 .insightLink:hover {
-  background: #f5f7fa;
+  text-decoration: underline;
 }
 
 .main {
@@ -378,8 +375,6 @@
   }
 
   .sidebar {
-    border-right: none;
-    border-bottom: 1px solid #ececec;
     padding: 12px 12px 14px;
   }
 
