@@ -37,7 +37,7 @@ function buildDisplayData(projects = []) {
       ...project,
       slug: project.slug || project.id || `${index}`,
       summary: project.summary || getProjectSummary(project),
-      category: project.category || 'Application',
+      category: project.category || '',
       rating: project.rating || '4.7',
       reviewCount: project.reviewCount || project.reviews || 0,
       screenshots: Array.isArray(project.screenshots)
@@ -49,9 +49,6 @@ function buildDisplayData(projects = []) {
     }))
 }
 
-function hasImage(url) {
-  return Boolean(url)
-}
 
 function PortfolioV2Page() {
   const items = useMemo(() => buildDisplayData(projectsData.projects), [])
@@ -120,7 +117,6 @@ function PortfolioV2Page() {
           <p className={styles.subBrand}>Product Explorer</p>
         </header>
 
-        <div className={styles.sectionTitle}>Applications</div>
         <div className={styles.sidebarList}>
           {items.map((project) => {
             const isActive = project.slug === selectedProject?.slug
@@ -140,27 +136,12 @@ function PortfolioV2Page() {
                   .join(' ')}
                 aria-current={isActive ? 'page' : undefined}
               >
-                {hasImage(project.image) ? (
-                  <img
-                    src={project.image}
-                    alt=""
-                    className={styles.sidebarThumb}
-                  />
-                ) : (
-                  <span className={styles.sidebarThumbFallback}>
-                    {project.name?.[0]?.toUpperCase() ?? '?'}
-                  </span>
-                )}
-                <div className={styles.sidebarItemText}>
-                  <span className={styles.sidebarItemName}>{project.name}</span>
-                  <span className={styles.sidebarItemMeta}>{project.category}</span>
-                </div>
+                <span className={styles.sidebarItemName}>{project.name}</span>
               </button>
             )
           })}
         </div>
 
-        <div className={styles.sectionTitle}>Insights</div>
         <a href="/privacy" className={styles.insightLink}>개인정보 처리 방침</a>
         <Link to="/" className={styles.insightLink}>이전 버전 보기</Link>
       </aside>
