@@ -86,13 +86,13 @@ function PortfolioV2Page() {
       ? selectedProject?.description
       : `${(selectedProject?.description || '').slice(0, TRUNCATE_AT)}…`
 
-  const stats = selectedProject
+  const metaLine = selectedProject
     ? [
-        { label: 'Launch', value: selectedProject.launchedAt || 'TBD' },
-        { label: 'Users', value: selectedProject?.users?.count || '-', unit: selectedProject?.users?.unit || '' },
-        { label: 'Price', value: selectedProject?.price || 'Free' },
-        { label: 'Status', value: selectedProject?.management || 'active' },
-      ]
+        `★ ${selectedProject.rating} (${selectedProject.reviewCount || 0} reviews)`,
+        `${selectedProject?.launchedAt || 'TBD'}`,
+        selectedProject?.price || 'Free',
+        selectedProject?.management || 'active',
+      ].filter(Boolean)
     : []
 
   async function copyAll() {
@@ -171,36 +171,13 @@ function PortfolioV2Page() {
 
       <main className={styles.main}>
         <div className={styles.mainInner}>
-          <div className={styles.headerRow}>
-            <p className={styles.badge}>Portfolio v2</p>
-            {selectedProject?.category ? (
-              <p className={styles.category}>{selectedProject.category}</p>
-            ) : null}
-          </div>
+          {selectedProject?.category ? (
+            <p className={styles.category}>{selectedProject.category}</p>
+          ) : null}
 
           <h1 className={styles.title}>{selectedProject?.name}</h1>
 
-          <div className={styles.statsRow}>
-            {stats.map((item) => (
-              <div className={styles.statCard} key={item.label}>
-                <span className={styles.statLabel}>{item.label}</span>
-                <span className={styles.statValue}>
-                  {item.value}{item.unit ? ` ${item.unit}` : ''}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className={styles.reputationRow}>
-            <p>
-              <span className={styles.metaStrong}>Google Rating</span>
-              <span className={styles.metaValue}> {selectedProject?.rating} </span>
-              <span className={styles.metaSub}>({selectedProject?.reviewCount || 0})</span>
-            </p>
-          </div>
-
           <section className={styles.descriptionBlock}>
-            <h2 className={styles.sectionHead}>About this project</h2>
             <p className={styles.descriptionText}>{visibleDescription}</p>
             {isLongDescription && (
               <button
@@ -212,6 +189,8 @@ function PortfolioV2Page() {
               </button>
             )}
           </section>
+
+          <p className={styles.metaLine} aria-label="project meta">{metaLine.join(' · ')}</p>
 
           <section className={styles.actions}>
             {secondaryPlatforms.map((platform) => (
