@@ -142,8 +142,10 @@ function PortfolioV2Page() {
           })}
         </div>
 
-        <a href="/privacy" className={styles.insightLink}>개인정보 처리 방침</a>
-        <Link to="/" className={styles.insightLink}>이전 버전 보기</Link>
+        <div className={styles.sidebarFooter}>
+          <a href="/privacy" className={styles.insightLink}>개인정보 처리 방침</a>
+          <Link to="/" className={styles.insightLink}>이전 버전 보기</Link>
+        </div>
       </aside>
 
       <main className={styles.main}>

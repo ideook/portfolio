@@ -50,6 +50,7 @@
 
 .sidebarItem {
   width: 100%;
+  display: block;
   border: none;
   background: transparent;
   text-align: left;
@@ -62,6 +63,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+  box-sizing: border-box;
   transition:
     color 140ms ease,
     font-weight 140ms ease;
@@ -82,14 +88,20 @@
 }
 
 
+.sidebarFooter {
+  margin-top: 2px;
+}
+
 .insightLink {
-  display: inline-flex;
+  display: block;
+  width: 100%;
   font-size: 12px;
   color: #6e7680;
   text-decoration: none;
   margin-top: 8px;
-  border-radius: 8px;
   line-height: 1.4;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .insightLink:hover {
