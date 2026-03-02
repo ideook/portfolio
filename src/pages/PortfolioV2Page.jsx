@@ -150,9 +150,9 @@ function PortfolioV2Page() {
         <div className={styles.mainInner}>
           <div className={styles.headerRow}>
             <p className={styles.badge}>Portfolio v2</p>
-            {selectedProject && (
+            {selectedProject?.category ? (
               <p className={styles.category}>{selectedProject.category}</p>
-            )}
+            ) : null}
           </div>
 
           <h1 className={styles.title}>{selectedProject?.name}</h1>
