@@ -1,0 +1,410 @@
+.shell {
+  height: 100dvh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  background: #fafafa;
+  color: #111;
+}
+
+.sidebar {
+  border-right: 1px solid #ececec;
+  background: #fff;
+  padding: 18px 16px 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebarHeader {
+  margin-bottom: 18px;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brandDot {
+  color: #7c7c7c;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.subBrand {
+  margin-top: 3px;
+  color: #9b9b9b;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 20px 0 8px;
+  color: #989ea8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebarItem {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px 9px;
+  cursor: pointer;
+  color: #1d1d1d;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.sidebarItem:hover {
+  background: #f5f7fa;
+}
+
+.sidebarItemActive {
+  background: #111;
+  color: #fff;
+}
+
+.sidebarThumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.sidebarThumbFallback {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebarItemText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebarItemName {
+  font-size: 14px;
+  font-weight: 560;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarItemMeta {
+  font-size: 12px;
+  color: #7a7f89;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarItemActive .sidebarItemMeta {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.insightLink {
+  display: inline-flex;
+  font-size: 12px;
+  color: #7a7a7a;
+  text-decoration: none;
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.insightLink:hover {
+  background: #f5f7fa;
+}
+
+.main {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 32px;
+}
+
+.mainInner {
+  max-width: 920px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.badge {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6f6f6f;
+}
+
+.category {
+  color: #838c96;
+  font-size: 12px;
+}
+
+.title {
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: clamp(30px, 4.3vw, 52px);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.statCard {
+  border: 1px solid #ededed;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.statLabel {
+  display: block;
+  font-size: 11px;
+  color: #8a8f98;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.statValue {
+  margin-top: 4px;
+  display: block;
+  font-size: 16px;
+  font-weight: 680;
+  color: #111;
+}
+
+.reputationRow {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #4c535c;
+}
+
+.metaStrong {
+  font-weight: 650;
+  color: #171b21;
+}
+
+.metaValue {
+  margin-left: 4px;
+  color: #111;
+}
+
+.metaSub {
+  color: #767f88;
+}
+
+.descriptionBlock {
+  margin-top: 20px;
+}
+
+.sectionHead {
+  margin-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #7a7f87;
+}
+
+.descriptionText {
+  font-size: 15px;
+  line-height: 1.74;
+  color: #25282f;
+}
+
+.textLink {
+  margin-top: 8px;
+  border: none;
+  background: transparent;
+  color: #0b66b7;
+  padding: 0;
+  font-size: 14px;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actionButton,
+.copyButton {
+  border: 1px solid #d6dbe0;
+  background: #fff;
+  color: #101218;
+  border-radius: 999px;
+  min-height: 36px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 560;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.actionButton:hover,
+.copyButton:hover {
+  border-color: #bfc6ce;
+}
+
+.copyButton {
+  cursor: pointer;
+}
+
+.tagsWrap {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  border: 1px solid #e4e7eb;
+  background: #f6f8fb;
+  color: #4f5968;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.gallerySection {
+  margin-top: 22px;
+}
+
+.galleryStrip {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 6px;
+}
+
+.galleryStrip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.galleryStrip::-webkit-scrollbar-thumb {
+  background: #d3d8de;
+  border-radius: 999px;
+}
+
+.galleryFrame {
+  margin: 0;
+  min-width: 252px;
+  width: 252px;
+  height: 520px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #ebedf0;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(20, 31, 47, 0.06);
+  flex-shrink: 0;
+}
+
+.galleryFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emptyGallery {
+  color: #8a9099;
+  padding: 40px 0;
+  font-size: 14px;
+}
+
+.footer {
+  margin-top: 26px;
+  margin-bottom: 10px;
+  color: #8f98a1;
+  font-size: 12px;
+}
+
+@media (max-width: 1024px) {
+  .shell {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .main {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #ececec;
+    padding: 12px 12px 14px;
+  }
+
+  .sidebarList {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .sidebarItem {
+    min-width: 180px;
+  }
+
+  .main {
+    padding: 14px 12px 24px;
+    min-height: 0;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title {
+    font-size: 36px;
+  }
+}
