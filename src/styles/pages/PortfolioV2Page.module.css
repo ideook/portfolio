@@ -58,8 +58,8 @@
   cursor: pointer;
   color: #1b1f27;
   padding: 10px 0;
-  font-size: 24px;
-  line-height: 1.12;
+  font-size: 20px;
+  line-height: 1.18;
   letter-spacing: -0.02em;
   white-space: nowrap;
   overflow: hidden;
@@ -291,7 +291,7 @@
   }
 
   .sidebarItem {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .title {
@@ -327,7 +327,7 @@
     width: auto;
     min-width: max-content;
     padding: 6px 0;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .main {
@@ -359,7 +359,7 @@
   }
 
   .sidebarItem {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .galleryFrame {
