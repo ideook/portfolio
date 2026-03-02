@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import projectsData from '../data/projects.json'
 import styles from '../styles/pages/PortfolioV2Page.module.css'
 
+const DEFAULT_APP_ICON = '/images/default-app-icon.svg'
+
 const PLATFORM_LABELS = {
   ios: 'App Store',
   android: 'Google Play',
@@ -45,11 +47,15 @@ function buildDisplayData(projects = []) {
         ? project.screenshots
         : project.image
           ? [project.image]
-          : [],
+          : [DEFAULT_APP_ICON],
       launchedAt: formatDate(project.launchDate),
     }))
 }
 
+function isImageSource(value) {
+  if (!value || typeof value !== 'string') return false
+  return value.startsWith('/') || /^https?:\/\//i.test(value) || value.startsWith('data:')
+}
 
 function PortfolioV2Page() {
   const items = useMemo(() => buildDisplayData(projectsData.projects), [])
@@ -137,7 +143,20 @@ function PortfolioV2Page() {
                   .join(' ')}
                 aria-current={isActive ? 'page' : undefined}
               >
-                <span className={styles.sidebarItemIcon} aria-hidden="true">{project.icon}</span>
+                {isImageSource(project.icon) ? (
+                  <img
+                    src={project.icon}
+                    alt=""
+                    className={styles.sidebarItemIconImage}
+                    onError={(e) => {
+                      if (e.currentTarget.dataset.broken) return
+                      e.currentTarget.dataset.broken = '1'
+                      e.currentTarget.src = DEFAULT_APP_ICON
+                    }}
+                  />
+                ) : (
+                  <span className={styles.sidebarItemIcon} aria-hidden="true">{project.icon}</span>
+                )}
                 <span className={styles.sidebarItemName}>{project.name}</span>
               </button>
             )
@@ -233,7 +252,13 @@ function PortfolioV2Page() {
               {selectedProject?.screenshots?.length ? (
                 selectedProject.screenshots.map((src, index) => (
                   <figure className={styles.galleryFrame} key={`${src}-${index}`}>
-                    <img src={src} alt={`${selectedProject.name} screenshot ${index + 1}`} />
+                    <img
+                      src={src}
+                      alt={`${selectedProject.name} screenshot ${index + 1}`}
+                      onError={(e) => {
+                        e.currentTarget.src = DEFAULT_APP_ICON
+                      }}
+                    />
                   </figure>
                 ))
               ) : (

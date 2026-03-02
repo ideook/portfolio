@@ -87,6 +87,14 @@
   opacity: 0.94;
 }
 
+.sidebarItemIconImage {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  border-radius: 8px;
+}
+
 .sidebarItemName {
   overflow: hidden;
   text-overflow: ellipsis;
