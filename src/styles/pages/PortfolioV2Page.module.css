@@ -1,7 +1,7 @@
 .shell {
-  width: calc(100vw - 52px);
-  height: calc(100dvh - 52px);
-  margin: 26px auto;
+  width: calc(100vw - 120px);
+  height: calc(100dvh - 120px);
+  margin: 60px auto;
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   gap: 26px;
@@ -316,9 +316,9 @@
 
 @media (max-width: 1024px) {
   .shell {
-    width: calc(100vw - 40px);
-    height: calc(100dvh - 40px);
-    margin: 20px auto;
+    width: calc(100vw - 120px);
+    height: calc(100dvh - 120px);
+    margin: 60px auto;
     grid-template-columns: 280px minmax(0, 1fr);
     gap: 22px;
   }
