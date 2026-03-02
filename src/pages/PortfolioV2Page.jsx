@@ -38,6 +38,7 @@ function buildDisplayData(projects = []) {
       slug: project.slug || project.id || `${index}`,
       summary: project.summary || getProjectSummary(project),
       category: project.category || '',
+      icon: project.icon || project.name?.trim()?.slice(0, 1) || '•',
       rating: project.rating || '4.7',
       reviewCount: project.reviewCount || project.reviews || 0,
       screenshots: Array.isArray(project.screenshots)
@@ -136,6 +137,7 @@ function PortfolioV2Page() {
                   .join(' ')}
                 aria-current={isActive ? 'page' : undefined}
               >
+                <span className={styles.sidebarItemIcon} aria-hidden="true">{project.icon}</span>
                 <span className={styles.sidebarItemName}>{project.name}</span>
               </button>
             )
