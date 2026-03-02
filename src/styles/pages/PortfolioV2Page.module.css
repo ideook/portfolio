@@ -1,10 +1,11 @@
 .shell {
-  height: 100dvh;
-  width: 100vw;
+  width: calc(100vw - 52px);
+  height: calc(100dvh - 52px);
+  margin: 26px auto;
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   gap: 26px;
-  padding: 26px;
+  padding: 0;
   box-sizing: border-box;
   background: #fafafa;
   color: #111;
@@ -99,12 +100,11 @@
   min-width: 0;
   min-height: 0;
   overflow: auto;
-  padding: 8px 6px 32px;
+  padding: 12px 10px 24px 0;
 }
 
 .mainInner {
   max-width: 1020px;
-  margin-right: 18px;
 }
 
 .headerRow {
@@ -316,13 +316,15 @@
 
 @media (max-width: 1024px) {
   .shell {
+    width: calc(100vw - 40px);
+    height: calc(100dvh - 40px);
+    margin: 20px auto;
     grid-template-columns: 280px minmax(0, 1fr);
     gap: 22px;
-    padding: 20px;
   }
 
   .main {
-    padding: 8px 0 26px;
+    padding: 10px 6px 24px 0;
   }
 
   .sidebarItem {
@@ -332,12 +334,12 @@
 
 @media (max-width: 760px) {
   .shell {
-    grid-template-columns: 1fr;
+    width: calc(100vw - 24px);
     height: auto;
-    min-height: 100dvh;
+    min-height: calc(100dvh - 24px);
+    margin: 12px auto;
     overflow: auto;
     gap: 14px;
-    padding: 14px;
   }
 
   .sidebar {
