@@ -40,7 +40,7 @@ function buildDisplayData(projects = []) {
       slug: project.slug || project.id || `${index}`,
       summary: project.summary || getProjectSummary(project),
       category: project.category || '',
-      icon: project.icon || project.name?.trim()?.slice(0, 1) || '•',
+      icon: isImageSource(project.icon) ? project.icon : DEFAULT_APP_ICON,
       rating: project.rating || '4.7',
       reviewCount: project.reviewCount || project.reviews || 0,
       screenshots: Array.isArray(project.screenshots)
@@ -143,20 +143,16 @@ function PortfolioV2Page() {
                   .join(' ')}
                 aria-current={isActive ? 'page' : undefined}
               >
-                {isImageSource(project.icon) ? (
-                  <img
-                    src={project.icon}
-                    alt=""
-                    className={styles.sidebarItemIconImage}
-                    onError={(e) => {
-                      if (e.currentTarget.dataset.broken) return
-                      e.currentTarget.dataset.broken = '1'
-                      e.currentTarget.src = DEFAULT_APP_ICON
-                    }}
-                  />
-                ) : (
-                  <span className={styles.sidebarItemIcon} aria-hidden="true">{project.icon}</span>
-                )}
+                <img
+                  src={isImageSource(project.icon) ? project.icon : DEFAULT_APP_ICON}
+                  alt=""
+                  className={styles.sidebarItemIconImage}
+                  onError={(e) => {
+                    if (e.currentTarget.dataset.broken) return
+                    e.currentTarget.dataset.broken = '1'
+                    e.currentTarget.src = DEFAULT_APP_ICON
+                  }}
+                />
                 <span className={styles.sidebarItemName}>{project.name}</span>
               </button>
             )

@@ -88,7 +88,7 @@
         "korea",
         "location"
       ],
-      "icon": "🌏"
+      "icon": "/images/icons/k-random-trip-icon.svg"
     },
     {
       "id": "tidily-2025",
@@ -123,7 +123,7 @@
         "ai",
         "organization"
       ],
-      "icon": "✨"
+      "icon": "/images/icons/tidily-icon.svg"
     },
     {
       "id": "mydb-2025",
@@ -195,7 +195,7 @@
         "weather",
         "recommendations"
       ],
-      "icon": "🌦️"
+      "icon": "/images/icons/then-weather-icon.svg"
     },
     {
       "id": "tentdb-2026",
@@ -230,7 +230,7 @@
         "productivity"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "⏱️"
+      "icon": "/images/icons/tent-db-icon.svg"
     },
     {
       "id": "jigeumgogo-2026",
@@ -299,7 +299,7 @@
         "parking"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "🚘"
+      "icon": "/images/icons/parking-vehicle-classification-icon.svg"
     },
     {
       "id": "writone-2026",
@@ -335,7 +335,7 @@
         "writing"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "✍️"
+      "icon": "/images/icons/writone--reply-assistant-icon.svg"
     },
     {
       "id": "siseon-2026",
@@ -369,7 +369,7 @@
         "poetry"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "📝"
+      "icon": "/images/icons/poetry-lens-icon.svg"
     },
     {
       "id": "bimspark-2026",
@@ -406,7 +406,7 @@
         "bim"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "🧩"
+      "icon": "/images/icons/bimspark-icon.svg"
     },
     {
       "id": "jobrisk-ai-2026",
@@ -441,7 +441,7 @@
         "assessment"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "📊"
+      "icon": "/images/icons/ai-job-risk-assessment-icon.svg"
     },
     {
       "id": "mypc-platform-2026",
@@ -476,7 +476,7 @@
         "community"
       ],
       "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
-      "icon": "💻"
+      "icon": "/images/icons/mypc-platform-icon.svg"
     }
   ]
 }
