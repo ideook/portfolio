@@ -3,15 +3,15 @@
   height: 100dvh;
   display: grid;
   grid-template-columns: 330px minmax(0, 1fr);
-  gap: 96px;
-  padding: 0 24px 24px 96px;
+  gap: 64px;
+  padding: 0 18px 18px 36px;
   box-sizing: border-box;
   background: #fafafa;
   color: #111;
 }
 
 .sidebar {
-  padding: 64px 0;
+  padding: 36px 0;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -123,7 +123,7 @@
   min-width: 0;
   min-height: 0;
   overflow: auto;
-  padding-top: 64px;
+  padding-top: 36px;
 }
 
 .mainInner {
@@ -286,8 +286,8 @@
 @media (max-width: 1320px) {
   .shell {
     grid-template-columns: 300px minmax(0, 1fr);
-    gap: 72px;
-    padding-left: 84px;
+    gap: 54px;
+    padding-left: 48px;
   }
 
   .sidebarItem {
