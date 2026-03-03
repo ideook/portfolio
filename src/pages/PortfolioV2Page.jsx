@@ -257,7 +257,9 @@ function PortfolioV2Page() {
     <div className={styles.shell}>
       <aside className={styles.sidebar}>
         <header className={styles.sidebarHeader}>
-          <p className={styles.brand}>{t.appLabel}</p>
+          <a href="/" className={styles.brandLink} aria-label="Go to home">
+            <p className={styles.brand}>{t.appLabel}</p>
+          </a>
           <button
             type="button"
             className={
