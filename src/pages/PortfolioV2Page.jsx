@@ -369,30 +369,36 @@ function PortfolioV2Page() {
             )}
           </div>
 
-          <div className={styles.langSwitch}>
-            <button
-              type="button"
+          <button
+            type="button"
+            className={styles.langSwitch}
+            role="switch"
+            aria-checked={locale === 'en'}
+            aria-label={`Switch language to ${locale === 'en' ? 'KR' : 'EN'}`}
+            onClick={() => setLocale(locale === 'en' ? 'ko' : 'en')}
+          >
+            <span className={styles.langSwitchTrack} />
+            <span
               className={
-                [styles.langButton, locale === 'en' ? styles.langButtonActive : '']
-                  .filter(Boolean)
-                  .join(' ')
+                `${styles.langSwitchThumb} ${locale === 'en' ? '' : styles.langSwitchThumbKo}`
               }
-              onClick={() => setLocale('en')}
+              aria-hidden="true"
+            />
+            <span
+              className={
+                `${styles.langSwitchLabel} ${locale === 'en' ? styles.langSwitchLabelActive : ''}`
+              }
             >
               {t.languageEn}
-            </button>
-            <button
-              type="button"
+            </span>
+            <span
               className={
-                [styles.langButton, locale === 'ko' ? styles.langButtonActive : '']
-                  .filter(Boolean)
-                  .join(' ')
+                `${styles.langSwitchLabel} ${locale === 'ko' ? styles.langSwitchLabelActive : ''}`
               }
-              onClick={() => setLocale('ko')}
             >
               {t.languageKo}
-            </button>
-          </div>
+            </span>
+          </button>
         </div>
       </aside>
 
