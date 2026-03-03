@@ -17,13 +17,53 @@
 }
 
 .sidebarHeader {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .brand {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.sidebarProfileTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e0e5eb;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 10px 4px 4px;
+  color: #2a3038;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 160ms ease, opacity 160ms ease;
+  opacity: 0.92;
+}
+
+.sidebarProfileTrigger:hover,
+.sidebarProfileTrigger:focus-visible {
+  border-color: #bec6d0;
+  opacity: 1;
+}
+
+.sidebarProfileTriggerIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eef1f5;
+  flex: 0 0 auto;
+}
+
+.sidebarProfileTriggerText {
+  font-size: 12px;
+  letter-spacing: 0.01em;
 }
 
 .brandDot {

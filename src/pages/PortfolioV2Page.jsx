@@ -146,36 +146,32 @@ function PortfolioV2Page() {
       <aside className={styles.sidebar}>
         <header className={styles.sidebarHeader}>
           <p className={styles.brand}>evanyi</p>
-        </header>
-
-        <div className={styles.sidebarList}>
           <button
             type="button"
+            className={styles.sidebarProfileTrigger}
             onClick={() => {
               setSelectedSlug(profileData.slug)
               setIsExpanded(false)
             }}
-            className={[
-              styles.sidebarItem,
-              isProfileSelected ? styles.sidebarItemActive : '',
-            ]
-              .filter(Boolean)
-              .join(' ')}
-            aria-current={isProfileSelected ? 'page' : undefined}
+            aria-pressed={isProfileSelected}
+            aria-label="View profile"
+            title="View profile"
           >
             <img
               src={profileData.avatar}
               alt=""
-              className={styles.sidebarItemIconImage}
+              className={styles.sidebarProfileTriggerIcon}
               onError={(e) => {
                 if (e.currentTarget.dataset.broken) return
                 e.currentTarget.dataset.broken = '1'
                 e.currentTarget.src = DEFAULT_APP_ICON
               }}
             />
-            <span className={styles.sidebarItemName}>{profileData.name}</span>
+            <span className={styles.sidebarProfileTriggerText}>profile</span>
           </button>
+        </header>
 
+        <div className={styles.sidebarList}>
           {items.map((project) => {
             const isActive = project.slug === selectedSlug
             return (
