@@ -12,7 +12,7 @@
 
 .sidebar {
   --sidebar-gap: 12px;
-  --sidebar-item-size: 15px;
+  --sidebar-item-size: 17px;
   --sidebar-item-color: #555f6d;
   --sidebar-item-color-active: #111827;
   --sidebar-item-hover: #0f172a;
@@ -497,7 +497,7 @@
   }
 
   .sidebar {
-    --sidebar-item-size: 14px;
+    --sidebar-item-size: 15px;
     --sidebar-gap: 11px;
   }
 
@@ -522,7 +522,7 @@
   .sidebar {
     padding-top: 12px;
     padding-bottom: 16px;
-    --sidebar-item-size: 14px;
+    --sidebar-item-size: 15px;
     --sidebar-gap: 10px;
   }
 
@@ -540,7 +540,7 @@
     width: auto;
     min-width: max-content;
     padding: 6px 0;
-    --sidebar-item-size: 14px;
+    --sidebar-item-size: 15px;
     --sidebar-gap: 10px;
     --sidebar-item-color: #4f5a67;
   }
@@ -581,7 +581,7 @@
   }
 
   .sidebarItem {
-    --sidebar-item-size: 14px;
+    --sidebar-item-size: 15px;
   }
 
   .galleryFrame {
