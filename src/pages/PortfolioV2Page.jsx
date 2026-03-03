@@ -14,6 +14,7 @@ const PLATFORM_LABELS = {
 }
 
 const TRUNCATE_AT = 240
+const PROFILE_SLUG = '__evanyi_profile__'
 
 function getProjectSummary(project) {
   const summary = project.summary || project.description || ''
@@ -62,10 +63,34 @@ function PortfolioV2Page() {
   const [selectedSlug, setSelectedSlug] = useState(items[0]?.slug ?? null)
   const [isExpanded, setIsExpanded] = useState(false)
   const [copied, setCopied] = useState(false)
+  const profileData = useMemo(() => {
+    const profile = projectsData.profile || {}
+    const social = projectsData.social || {}
+    const profileAvatar = profile.avatar || profile.icon
+
+    return {
+      slug: PROFILE_SLUG,
+      name: 'evanyi profile',
+      headline: 'evanyi',
+      role: profile.role || 'Indie maker · Architect turned coder',
+      intro: profile.intro
+        || 'After 15 years in architecture, I switched to coding for the immediacy of building solutions. I believe in rapid prototyping and learning through making.',
+      avatar: isImageSource(profileAvatar) ? profileAvatar : DEFAULT_APP_ICON,
+      social: {
+        twitter: social.twitter || '',
+        github: social.github || '',
+        email: social.email || '',
+      },
+    }
+  }, [])
+  const isProfileSelected = selectedSlug === PROFILE_SLUG
 
   const selectedProject = useMemo(
-    () => items.find((project) => project.slug === selectedSlug) ?? items[0],
-    [items, selectedSlug],
+    () => {
+      if (isProfileSelected) return null
+      return items.find((project) => project.slug === selectedSlug) ?? items[0] ?? null
+    },
+    [isProfileSelected, items, selectedSlug],
   )
 
   const secondaryPlatforms = useMemo(() => {
@@ -120,13 +145,39 @@ function PortfolioV2Page() {
     <div className={styles.shell}>
       <aside className={styles.sidebar}>
         <header className={styles.sidebarHeader}>
-          <p className={styles.brand}>portfolio<span className={styles.brandDot}>v2</span></p>
-          <p className={styles.subBrand}>Product Explorer</p>
+          <p className={styles.brand}>evanyi</p>
         </header>
 
         <div className={styles.sidebarList}>
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedSlug(profileData.slug)
+              setIsExpanded(false)
+            }}
+            className={[
+              styles.sidebarItem,
+              isProfileSelected ? styles.sidebarItemActive : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+            aria-current={isProfileSelected ? 'page' : undefined}
+          >
+            <img
+              src={profileData.avatar}
+              alt=""
+              className={styles.sidebarItemIconImage}
+              onError={(e) => {
+                if (e.currentTarget.dataset.broken) return
+                e.currentTarget.dataset.broken = '1'
+                e.currentTarget.src = DEFAULT_APP_ICON
+              }}
+            />
+            <span className={styles.sidebarItemName}>{profileData.name}</span>
+          </button>
+
           {items.map((project) => {
-            const isActive = project.slug === selectedProject?.slug
+            const isActive = project.slug === selectedSlug
             return (
               <button
                 key={project.slug}
@@ -167,80 +218,132 @@ function PortfolioV2Page() {
 
       <main className={styles.main}>
         <div className={styles.mainInner}>
-          {selectedProject?.category ? (
-            <p className={styles.category}>{selectedProject.category}</p>
-          ) : null}
+          {isProfileSelected ? (
+            <section className={styles.profileDetailPanel}>
+              <img
+                src={profileData.avatar}
+                alt="evanyi avatar"
+                className={styles.profileAvatar}
+                onError={(e) => {
+                  e.currentTarget.src = DEFAULT_APP_ICON
+                }}
+              />
 
-          <h1 className={styles.title}>{selectedProject?.name}</h1>
+              <h1 className={styles.profileHeading}>{profileData.headline}</h1>
+              <p className={styles.profileRole}>{profileData.role}</p>
+              <p className={styles.profileIntro}>{profileData.intro}</p>
 
-          <section className={styles.descriptionBlock}>
-            <p className={styles.descriptionText}>{visibleDescription}</p>
-            {isLongDescription && (
-              <button
-                type="button"
-                className={styles.textLink}
-                onClick={() => setIsExpanded((prev) => !prev)}
-              >
-                {isExpanded ? 'Read less' : 'Read more'}
-              </button>
-            )}
-          </section>
+              <div className={styles.profileSocials}>
+                {profileData.social.twitter && (
+                  <a
+                    href={profileData.social.twitter}
+                    className={styles.profileSocialLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    X
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                {profileData.social.github && (
+                  <a
+                    href={profileData.social.github}
+                    className={styles.profileSocialLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                {profileData.social.email && (
+                  <a
+                    href={`mailto:${profileData.social.email}`}
+                    className={styles.profileSocialLink}
+                  >
+                    {profileData.social.email}
+                  </a>
+                )}
+              </div>
+            </section>
+          ) : (
+            <>
+              {selectedProject?.category ? (
+                <p className={styles.category}>{selectedProject.category}</p>
+              ) : null}
 
-          <p className={styles.metaLine} aria-label="project meta">{metaLine.join(' · ')}</p>
+              <h1 className={styles.title}>{selectedProject?.name}</h1>
 
-          <section className={styles.actions}>
-            {secondaryPlatforms.map((platform) => (
-              <a
-                key={`${selectedProject?.slug}-${platform.key}`}
-                href={platform.url}
-                className={styles.actionButton}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${platform.label}로 이동`}
-              >
-                {platform.label}
-                <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-            <button
-              type="button"
-              className={styles.copyButton}
-              onClick={copyAll}
-            >
-              {copied ? 'Copied ✓' : 'Copy all'}
-            </button>
-          </section>
+              <section className={styles.descriptionBlock}>
+                <p className={styles.descriptionText}>{visibleDescription}</p>
+                {isLongDescription && (
+                  <button
+                    type="button"
+                    className={styles.textLink}
+                    onClick={() => setIsExpanded((prev) => !prev)}
+                  >
+                    {isExpanded ? 'Read less' : 'Read more'}
+                  </button>
+                )}
+              </section>
 
-          {selectedProject?.tags?.length > 0 && (
-            <div className={styles.tagsWrap}>
-              {selectedProject.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
+              <p className={styles.metaLine} aria-label="project meta">{metaLine.join(' · ')}</p>
 
-          <section className={styles.gallerySection}>
-            <h2 className={styles.sectionHead}>Screenshots</h2>
-            <div className={styles.galleryStrip}>
-              {selectedProject?.screenshots?.length ? (
-                selectedProject.screenshots.map((src, index) => (
-                  <figure className={styles.galleryFrame} key={`${src}-${index}`}>
-                    <img
-                      src={src}
-                      alt={`${selectedProject.name} screenshot ${index + 1}`}
-                      onError={(e) => {
-                        e.currentTarget.src = DEFAULT_APP_ICON
-                      }}
-                    />
-                  </figure>
-                ))
-              ) : (
-                <p className={styles.emptyGallery}>No screenshot available.</p>
+              <section className={styles.actions}>
+                {secondaryPlatforms.map((platform) => (
+                  <a
+                    key={`${selectedProject?.slug}-${platform.key}`}
+                    href={platform.url}
+                    className={styles.actionButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${platform.label}로 이동`}
+                  >
+                    {platform.label}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+                <button
+                  type="button"
+                  className={styles.copyButton}
+                  onClick={copyAll}
+                >
+                  {copied ? 'Copied ✓' : 'Copy all'}
+                </button>
+              </section>
+
+              {selectedProject?.tags?.length > 0 && (
+                <div className={styles.tagsWrap}>
+                  {selectedProject.tags.map((tag) => (
+                    <span key={tag} className={styles.tag}>
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
               )}
-            </div>
-          </section>
+
+              <section className={styles.gallerySection}>
+                <h2 className={styles.sectionHead}>Screenshots</h2>
+                <div className={styles.galleryStrip}>
+                  {selectedProject?.screenshots?.length ? (
+                    selectedProject.screenshots.map((src, index) => (
+                      <figure className={styles.galleryFrame} key={`${src}-${index}`}>
+                        <img
+                          src={src}
+                          alt={`${selectedProject.name} screenshot ${index + 1}`}
+                          onError={(e) => {
+                            e.currentTarget.src = DEFAULT_APP_ICON
+                          }}
+                        />
+                      </figure>
+                    ))
+                  ) : (
+                    <p className={styles.emptyGallery}>No screenshot available.</p>
+                  )}
+                </div>
+              </section>
+            </>
+          )}
 
           <footer className={styles.footer}>
             <span>© 2026 evanyi portfolio. v2 layout.</span>
