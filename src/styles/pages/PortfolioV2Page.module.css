@@ -418,20 +418,20 @@
 
 .galleryFrame {
   margin: 0;
-  min-width: 250px;
-  width: 250px;
-  aspect-ratio: 9 / 19.4;
-  border-radius: 14px;
+  min-width: 260px;
+  width: min(360px, 100%);
   overflow: hidden;
-  border: 1px solid #ebedf0;
-  background: #f4f6f9;
-  box-shadow: 0 6px 16px rgba(20, 31, 47, 0.06);
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 10px;
   flex-shrink: 0;
 }
 
 .galleryFrame img {
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 
@@ -521,8 +521,8 @@
   }
 
   .galleryFrame {
-    width: 220px;
-    min-width: 220px;
+    width: min(320px, 100%);
+    min-width: 260px;
   }
 }
 
@@ -544,7 +544,7 @@
   }
 
   .galleryFrame {
-    width: 200px;
-    min-width: 200px;
+    width: min(280px, 100%);
+    min-width: 220px;
   }
 }
