@@ -18,7 +18,9 @@
   "social": {
     "twitter": "https://x.com/evanyi_81",
     "email": "dukhyun.lee@brdglab.kr",
-    "github": "https://github.com/ideook"
+    "github": "https://github.com/ideook",
+    "x": "https://x.com/evanyi_81",
+    "linkedin": "https://www.linkedin.com"
   },
   "projects": [
     {
@@ -51,7 +53,28 @@
         "productivity",
         "mobile-app",
         "ai"
-      ]
+      ],
+      "i18n": {
+        "en": {
+          "name": "Thinka",
+          "description": "A minimalist, intelligent app designed to help you capture and organize your thoughts effortlessly. Features voice recording, AI transcription and summarization, project-based organization, and professional document generation. Transform ideas into insights with seamless voice and text input support, simple gesture controls, and unlimited projects with Thinka Pro subscription.",
+          "tags": [
+            "productivity",
+            "mobile-app",
+            "ai"
+          ]
+        },
+        "ko": {
+          "name": "씽크카",
+          "description": "생각을 쉽게 기록하고 정리할 수 있도록 돕는 미니멀한 AI 앱입니다. 음성 녹음, AI 전사/요약, 프로젝트 기반 정리, 문서 생성 기능을 통해 아이디어를 통찰로 바꿉니다.",
+          "category": "생산성",
+          "tags": [
+            "생산성",
+            "모바일앱",
+            "AI"
+          ]
+        }
+      }
     },
     {
       "id": "k-random-trip-2025",
@@ -86,7 +109,30 @@
         "mobile-app",
         "korea",
         "location"
-      ]
+      ],
+      "i18n": {
+        "en": {
+          "name": "K-Random Trip",
+          "description": "Discover Korea the spontaneous way with no plans needed. K-Random Trip helps you explore Korea like never before with just a tap. From local street food to hidden scenic spots, from cozy cafés to quirky alleyways, your next destination is a surprise waiting to be discovered. Whether you're in Seoul, Busan, Jeju, or somewhere in between, let the app guide you to unexpected places full of charm with fresh, unfiltered recommendations.",
+          "tags": [
+            "travel",
+            "mobile-app",
+            "korea",
+            "location"
+          ]
+        },
+        "ko": {
+          "name": "K-Random Trip",
+          "description": "플랜 없이 즉흥적으로 한국을 탐험하는 여행 앱입니다. 로컬 스트리트 푸드부터 숨겨진 명소, 아늑한 카페까지 한 번의 탭으로 제안합니다.",
+          "category": "여행",
+          "tags": [
+            "여행",
+            "모바일앱",
+            "로컬",
+            "K-컬처"
+          ]
+        }
+      }
     },
     {
       "id": "tidily-2025",
@@ -120,7 +166,30 @@
         "mobile-app",
         "ai",
         "organization"
-      ]
+      ],
+      "i18n": {
+        "en": {
+          "name": "Tidily",
+          "description": "Turn chaos into calm in seconds. Tidily's privacy-first AI analyzes everything in your photo—whether it's a desk, shelf, room, or drawer—then renders a realistic 'after' view and gives you an easy action list. Features realistic before/after comparison for any space, smart storage & décor suggestions tailored to what you own, progress tracker and history timeline for lasting habits. All photos stay encrypted on your device with full privacy control.",
+          "tags": [
+            "productivity",
+            "mobile-app",
+            "ai",
+            "organization"
+          ]
+        },
+        "ko": {
+          "name": "티들리",
+          "description": "사진 한 장으로 복잡한 공간을 정돈 가능한 상태로 바꾸는 AI 정리 앱입니다. 공간별 before/after 비교, 수납/인테리어 추천, 진행 이력까지 제공합니다.",
+          "category": "생산성",
+          "tags": [
+            "생산성",
+            "모바일앱",
+            "AI",
+            "정리"
+          ]
+        }
+      }
     },
     {
       "id": "mydb-2025",
@@ -155,7 +224,31 @@
         "ai",
         "inventory",
         "scanner"
-      ]
+      ],
+      "i18n": {
+        "en": {
+          "name": "myDB",
+          "description": "Manage your items with one photo using AI analysis and organization. Smart tool for recording and managing all your possessions with automatic image analysis that extracts product names, models, and manufacturers from packaging or labels. Features multiple category support for electronics, wines, books, easy search & filtering, data-driven insights for consumer trends, and shopping list creation. Perfect for warranty tracking, wine collection management, and building personal databases.",
+          "tags": [
+            "productivity",
+            "mobile-app",
+            "ai",
+            "inventory",
+            "scanner"
+          ]
+        },
+        "ko": {
+          "name": "myDB",
+          "description": "사진 기반으로 소유 품목을 자동 태깅해 분류하는 AI 자산 관리 도구입니다. 검색, 분류, 소비 패턴 인사이트, 쇼핑 리스트까지 한 번에 관리합니다.",
+          "category": "도구",
+          "tags": [
+            "생산성",
+            "모바일앱",
+            "AI",
+            "자산관리"
+          ]
+        }
+      }
     },
     {
       "id": "then-weather-2025",
@@ -190,7 +283,30 @@
         "web-app",
         "weather",
         "recommendations"
-      ]
+      ],
+      "i18n": {
+        "en": {
+          "name": "Then Weather",
+          "description": "Weather-based travel destination recommendation service that analyzes weather data from around the world to recommend optimal travel destinations. Find regions that match your desired temperature and weather conditions for specific dates, or check past weather patterns for planned destinations to make more informed travel plans.",
+          "tags": [
+            "travel",
+            "web-app",
+            "weather",
+            "recommendations"
+          ]
+        },
+        "ko": {
+          "name": "Then Weather",
+          "description": "전 세계 날씨 데이터를 기반으로 원하는 조건의 여행 지역을 추천하고, 예정 여행지의 과거 날씨까지 확인할 수 있는 여행 추천 서비스입니다.",
+          "category": "여행",
+          "tags": [
+            "여행",
+            "웹앱",
+            "날씨",
+            "추천"
+          ]
+        }
+      }
     },
     {
       "id": "tentdb-2026",
@@ -224,7 +340,28 @@
         "database",
         "productivity"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "Tent DB",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "web-app",
+            "database",
+            "productivity"
+          ]
+        },
+        "ko": {
+          "name": "Tent DB",
+          "description": "몰입도 높은 작업을 위한 미니멀한 타이머 앱입니다. 집중/휴식 구간을 맞춤 설정하고 주간 분석으로 패턴을 확인합니다.",
+          "category": "생산성",
+          "tags": [
+            "생산성",
+            "웹앱",
+            "타이머"
+          ]
+        }
+      }
     },
     {
       "id": "jigeumgogo-2026",
@@ -257,7 +394,28 @@
         "travel",
         "location"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "지금고고",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "mobile-app",
+            "travel",
+            "location"
+          ]
+        },
+        "ko": {
+          "name": "지금고고",
+          "description": "즉시 사용 가능한 지도 기반 탐색 보조 경험을 제공합니다. 현재 위치 기반으로 주변 제안과 이동 동선을 빠르게 구성할 수 있습니다.",
+          "category": "지도",
+          "tags": [
+            "위치",
+            "모바일앱",
+            "여행"
+          ]
+        }
+      }
     },
     {
       "id": "parking-classifier-2026",
@@ -291,7 +449,28 @@
         "vision",
         "parking"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "Parking Vehicle Classification",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "mobile-app",
+            "vision",
+            "parking"
+          ]
+        },
+        "ko": {
+          "name": "Parking Vehicle Classification",
+          "description": "주차장 카메라 환경에서 차량 유형을 분류하는 AI 기반 분류기입니다. 라이선스 및 시설 운영 정밀 분류 워크플로우에 맞게 동작합니다.",
+          "category": "컴퓨터비전",
+          "tags": [
+            "비전",
+            "모바일앱",
+            "주차"
+          ]
+        }
+      }
     },
     {
       "id": "writone-2026",
@@ -326,7 +505,29 @@
         "translation",
         "writing"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "Writone - Reply Assistant",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "mobile-app",
+            "translation",
+            "writing"
+          ]
+        },
+        "ko": {
+          "name": "Writone - 답장 도우미",
+          "description": "메일/메시지 작성 톤을 분석해 자연스러운 답장을 돕는 AI 어시스턴트 앱입니다. 다국어 문장 톤 조정까지 지원합니다.",
+          "category": "글쓰기",
+          "tags": [
+            "생산성",
+            "모바일앱",
+            "번역",
+            "작성"
+          ]
+        }
+      }
     },
     {
       "id": "siseon-2026",
@@ -359,7 +560,28 @@
         "camera",
         "poetry"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "Poetry Lens",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "mobile-app",
+            "camera",
+            "poetry"
+          ]
+        },
+        "ko": {
+          "name": "Poetry Lens",
+          "description": "사진이나 텍스트에서 영감을 받아 시적 문장을 정리하고 감성적으로 보관할 수 있는 개인 워크플로우 앱입니다.",
+          "category": "창작",
+          "tags": [
+            "글쓰기",
+            "카메라",
+            "시"
+          ]
+        }
+      }
     },
     {
       "id": "bimspark-2026",
@@ -395,7 +617,28 @@
         "saas",
         "bim"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "BIMSpark",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "web-app",
+            "saas",
+            "bim"
+          ]
+        },
+        "ko": {
+          "name": "BIMSpark",
+          "description": "일상 작업 흐름 속에서 더 나은 BIM 창작 경험을 제공하는 웹 기반 실험형 플랫폼입니다. 빠른 프로토타이핑과 공유를 위한 메타 워크스페이스입니다.",
+          "category": "BIM",
+          "tags": [
+            "웹앱",
+            "SaaS",
+            "BIM"
+          ]
+        }
+      }
     },
     {
       "id": "jobrisk-ai-2026",
@@ -429,7 +672,30 @@
         "ai",
         "assessment"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "AI Job Risk Assessment",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "web-app",
+            "saas",
+            "ai",
+            "assessment"
+          ]
+        },
+        "ko": {
+          "name": "AI Job Risk Assessment",
+          "description": "채용 공고 및 지원자 요건을 AI로 정량 분석해 지원 리스크를 예측하고 조언을 제시하는 분석 도구입니다.",
+          "category": "인사",
+          "tags": [
+            "웹앱",
+            "SaaS",
+            "AI",
+            "평가"
+          ]
+        }
+      }
     },
     {
       "id": "mypc-platform-2026",
@@ -463,7 +729,43 @@
         "pc",
         "community"
       ],
-      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device."
+      "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+      "i18n": {
+        "en": {
+          "name": "myPC Platform",
+          "description": "A minimalist Pomodoro timer that adapts to your work rhythm. FocusFlow tracks your focus sessions, identifies your peak productivity hours, and gently nudges you back when distracted. Features customizable work/break intervals, session history with weekly analytics, ambient soundscapes, and a widget for the home screen. No accounts, no cloud — everything stays on your device.",
+          "tags": [
+            "web-app",
+            "saas",
+            "pc",
+            "community"
+          ]
+        },
+        "ko": {
+          "name": "myPC Platform",
+          "description": "개발자/기기 사용자들을 위한 커뮤니티형 PC 관리 플랫폼 개념으로, 장비 공유와 워크스페이스 연결을 지원합니다.",
+          "category": "도구",
+          "tags": [
+            "웹앱",
+            "SaaS",
+            "PC",
+            "커뮤니티"
+          ]
+        }
+      }
     }
-  ]
+  ],
+  "profile": {
+    "avatar": "https://x.com/evanyi_81",
+    "i18n": {
+      "en": {
+        "title": "evanyi",
+        "role": "Indie maker · Architect turned coder"
+      },
+      "ko": {
+        "title": "evanyi",
+        "role": "독립 앱 메이커 · 건축가에서 코더로"
+      }
+    }
+  }
 }
