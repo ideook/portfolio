@@ -7,7 +7,6 @@ const DEFAULT_APP_ICON = '/images/default-app-icon.svg'
 const UI_TEXT = {
   en: {
     appLabel: 'evanyi',
-    profileLabel: 'profile',
     profileTitle: 'evanyi',
     role: 'Indie maker · Architect turned coder',
     intro:
@@ -29,7 +28,6 @@ const UI_TEXT = {
   },
   ko: {
     appLabel: 'evanyi',
-    profileLabel: '프로필',
     profileTitle: 'evanyi',
     role: '독립 앱 메이커 · 건축가에서 코더로',
     intro:
@@ -286,7 +284,6 @@ function PortfolioV2Page() {
                 e.currentTarget.src = DEFAULT_APP_ICON
               }}
             />
-            <span className={styles.sidebarProfileTriggerText}>{t.profileLabel}</span>
           </button>
         </header>
 
