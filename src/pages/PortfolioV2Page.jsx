@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import projectsData from '../data/projects.json'
 import styles from '../styles/pages/PortfolioV2Page.module.css'
 
@@ -170,7 +171,7 @@ function PortfolioV2Page() {
   const [locale, setLocale] = useState('en')
   const t = UI_TEXT[locale] || UI_TEXT.en
   const items = useMemo(() => buildDisplayData(projectsData.projects, locale), [locale])
-  const [selectedSlug, setSelectedSlug] = useState(items[0]?.slug ?? null)
+  const [selectedSlug, setSelectedSlug] = useState(PROFILE_SLUG)
   const [isExpanded, setIsExpanded] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -258,36 +259,17 @@ function PortfolioV2Page() {
     <div className={styles.shell}>
       <aside className={styles.sidebar}>
         <header className={styles.sidebarHeader}>
-          <a href="/" className={styles.brandLink} aria-label="Go to home">
-            <p className={styles.brand}>{t.appLabel}</p>
-          </a>
-          <button
-            type="button"
-            className={
-              [
-                styles.sidebarProfileTrigger,
-                isProfileSelected ? styles.sidebarProfileTriggerActive : '',
-              ].filter(Boolean).join(' ')
-            }
+          <Link
+            to="/"
+            className={styles.brandLink}
+            aria-label="Go to home"
             onClick={() => {
-              setSelectedSlug(profileData.slug)
+              setSelectedSlug(PROFILE_SLUG)
               setIsExpanded(false)
             }}
-            aria-pressed={isProfileSelected}
-            aria-label={t.openProfile}
-            title={t.openProfile}
           >
-            <img
-              src={profileData.avatar}
-              alt=""
-              className={styles.sidebarProfileTriggerIcon}
-              onError={(e) => {
-                if (e.currentTarget.dataset.broken) return
-                e.currentTarget.dataset.broken = '1'
-                e.currentTarget.src = DEFAULT_APP_ICON
-              }}
-            />
-          </button>
+            <p className={styles.brand}>{t.appLabel}</p>
+          </Link>
         </header>
 
         <div className={styles.sidebarList}>
