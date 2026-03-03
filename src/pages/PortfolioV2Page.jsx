@@ -148,7 +148,14 @@ function PortfolioV2Page() {
           <p className={styles.brand}>evanyi</p>
           <button
             type="button"
-            className={styles.sidebarProfileTrigger}
+            className={
+              [
+                styles.sidebarProfileTrigger,
+                isProfileSelected ? styles.sidebarProfileTriggerActive : '',
+              ]
+                .filter(Boolean)
+                .join(' ')
+            }
             onClick={() => {
               setSelectedSlug(profileData.slug)
               setIsExpanded(false)
