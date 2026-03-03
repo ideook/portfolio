@@ -23,7 +23,7 @@ const UI_TEXT = {
     projectLabel: 'Project',
     to: 'to',
     languageEn: 'EN',
-    languageKo: '한글',
+    languageKo: 'KR',
     openProfile: 'Open profile',
   },
   ko: {
@@ -43,8 +43,8 @@ const UI_TEXT = {
     launchedLabel: '출시일',
     projectLabel: '프로젝트',
     to: '로 이동',
-    languageEn: '영문',
-    languageKo: '한글',
+    languageEn: 'EN',
+    languageKo: 'KR',
     openProfile: '프로필 보기',
   },
 }
