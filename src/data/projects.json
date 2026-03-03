@@ -756,7 +756,7 @@
     }
   ],
   "profile": {
-    "avatar": "https://x.com/evanyi_81",
+    "avatar": "/images/default-app-icon.svg",
     "i18n": {
       "en": {
         "title": "evanyi",
@@ -766,6 +766,7 @@
         "title": "evanyi",
         "role": "독립 앱 메이커 · 건축가에서 코더로"
       }
-    }
+    },
+    "icon": "/images/default-app-icon.svg"
   }
 }

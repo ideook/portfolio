@@ -176,7 +176,8 @@ function PortfolioV2Page() {
   const profileData = useMemo(() => {
     const profile = projectsData.profile || {}
     const social = projectsData.social || {}
-    const profileAvatar = profile.avatar || profile.icon
+    const profileAvatar =
+      profile.avatar || profile.icon || profile.image || `${DEFAULT_APP_ICON}`
     const profileLocale = profile.i18n?.[locale] || {}
 
     return {
