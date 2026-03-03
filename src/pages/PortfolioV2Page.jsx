@@ -3,6 +3,7 @@ import projectsData from '../data/projects.json'
 import styles from '../styles/pages/PortfolioV2Page.module.css'
 
 const DEFAULT_APP_ICON = '/images/default-app-icon.svg'
+const PROFILE_AVATAR_ICON = '/images/profile-avatar.svg'
 
 const UI_TEXT = {
   en: {
@@ -176,8 +177,7 @@ function PortfolioV2Page() {
   const profileData = useMemo(() => {
     const profile = projectsData.profile || {}
     const social = projectsData.social || {}
-    const profileAvatar =
-      profile.avatar || profile.icon || profile.image || `${DEFAULT_APP_ICON}`
+    const profileAvatar = PROFILE_AVATAR_ICON
     const profileLocale = profile.i18n?.[locale] || {}
 
     return {
