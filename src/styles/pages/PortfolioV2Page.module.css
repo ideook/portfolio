@@ -561,10 +561,10 @@
   .sidebarItem {
     width: auto;
     min-width: max-content;
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: 1px solid #dbe3ed;
-    background: #f8fafc;
+    padding: 8px 4px;
+    border: none;
+    background: transparent;
+    border-radius: 0;
     --sidebar-item-size: 15px;
     --sidebar-item-color: #3f4a59;
     flex-shrink: 0;
@@ -576,9 +576,10 @@
   }
 
   .sidebarItemActive {
-    border-color: #0f172a;
-    background: #0f172a;
-    color: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .main {
